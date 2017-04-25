@@ -1,5 +1,3 @@
-
-    
 <div id="photos">
   <ul id="thumbnails">
 		<li>
@@ -24,12 +22,11 @@
     </li>  
   </ul>
 </div>	
-<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script
-  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-  crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-  <script src="js/processing.min.js"></script>  
-  <script src="js/app.js" type="text/javascript" charset="utf-8"></script> 		-->
+<script>
+  [].forEach.call(document.querySelectorAll('#thumbnails a'), function(el) {
+    el.addEventListener('click', function () {
+      event.preventDefault();
+      console.log('test');
+    });
+  });
+</script>
