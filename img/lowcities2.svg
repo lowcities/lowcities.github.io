@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Lowcities</title>
-    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/slicknav.css">
-    <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<header>
-
-
-</header>
-<body>
-    <div class="append"></div>
-    <div class="wrapper">
-
-    <div id="menu">
-        <ul>
-            <a href="portfolio.html"><li>web portfolio</li></a>
-            <li>github repository</li>
-            <a href="music.html"><li>music</li></a>
-            <a href="photos.html"><li>photography</li></a>
-        </ul>
-
-        </div>
-      <div class="test">
-      <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -84,22 +55,3 @@
          id="tspan3382">design/development/music/art</tspan></text>
   </g>
 </svg>
-
-
-      </div>
-
-
-        <div class="social">
-            <div class="twitter"><a href="http://twitter.com/lowcities"></a></div>
-            <div class="insta"><a href="http://instagram.com/lowcities"></a></div>
-            <div class="linkdin"></div>
-        </div>
-
-        </div>
-    <footer><h2>&copy;2017 David Low</h2></footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src='js/jquery.slicknav.min.js'></script>
-    <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
-    <script src="//use.edgefonts.net/cabin-sketch.js"></script>
-</body>
-</html>

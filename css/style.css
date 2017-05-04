@@ -38,9 +38,9 @@ MAIN ELEMENT STYLES
 *******************************************************/
 
 a {
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 #menu ul {
@@ -71,32 +71,16 @@ body {
 
 
 header {
-  background: url('../img/wall.jpg')no-repeat;
+  background: url('../img/wall.jpg') repeat;
   background-size: cover;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 200px;
+  height: 0 auto;
   position: relative;
 }
 
-header h1,
-h3 {
-  text-align: center;
-  font-family: 'HACKED';
-  z-index: 10;
-}
 
-header h1 {
-  margin: 50px 0 0 0;
-  font-size: 4em;
-}
-
-header h3 {
-  font-size: 1.3em;
-  height: 10%;
-}
 
 .wrapper {
   display: flex;
@@ -117,13 +101,10 @@ header h3 {
 
 #container {
   width: 100%;
-  
-	
 }
 
 #home {
   display: inline-block;
-  
 }
 
 .intro {
@@ -141,8 +122,6 @@ header h3 {
   z-index: 2;
 }
 
-
-
 #menu  {
   font-family: hacked;
   font-size: 1.8em;
@@ -152,11 +131,13 @@ header h3 {
 	padding-top: 2%;
   padding-right: 10%;
   position: relative;
+  display: flex;
 
 }
 
-
-
+.show {
+  display: flex;
+}
 
 footer {
   font-family: 'hacked', sans-serif;
@@ -194,21 +175,21 @@ a:hover, a:visited, a:link, a:active
 }
 
 .nav_menu:hover {
-    background-color: dimgrey;
+  background-color: dimgrey;
 }
 
 .button  {
   padding-top: 6px;
-   width: 20px;
+  width: 20px;
 }
 
 .nav {
   width: 90px;
-    padding-left: 6px;
-    padding-top: 9px;
-    overflow: hidden;
-    position: relative;
-    z-index: 4;
+  padding-left: 6px;
+  padding-top: 9px;
+  overflow: hidden;
+  position: relative;
+  z-index: 4;
   float: right;
 }
 
@@ -218,30 +199,86 @@ a:hover, a:visited, a:link, a:active
             Image Styles
 ***********************************************/
 
+a.logo {
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 80%;
+  max-width: 500px;
+ }
+.logo img {
+  height: 0 auto;
+  width: 100%;
+
+}
+
+/*
+.city {
+ animation: zap 1s infinite;
+ animation-direction: alternate-reverse;
+}
+*/
+
+
+@keyframes zap {
+  0% { opacity: .10;}
+  100% { opacity: 1;}
+}
 
 .biopic {
-    background: url('../img/Attachment-1.jpeg')no-repeat 50% 0;
-    background-size: 100% auto;
-    background-position: center;
-    margin: 10px;
-    position: relative;
-    
-    float: left;
-    padding-top: 27.5%;
-    width: 50%;
-    z-index: 1;
-	
-
-    
+  background: url('../img/Attachment-1.jpeg')no-repeat 50% 0;
+  animation: shift 1s;
+  animation-iteration-count: 3;
+  animation-direction: alternate-reverse;
+  background-size: 100% auto;
+  background-position: center;
+  margin: 10px;
+  position: relative;
+  float: left;
+  padding-top: 17.5%;
+  width: 50%;
+  height: 100px;
+  max-width: 250px;
+  z-index: 1;
 }
 
-.biopic:hover {
-    background: url('../img/distort.jpg')center no-repeat;
-    background-size: cover;
-    
+@keyframes shift {
+
+  0% {background: url('../img/distort.jpg')no-repeat 50%;
+      background-size: cover;
+  }
+
+  10% {background: url('../img/Attachment-1.jpeg')no-repeat 50%;
+      background-size: cover;
+
+  }
+
+  20% {
+      left: 5px;
+  }
+
+  25% {left: 0;}
+
+  30% {background: url('../img/distort.jpg')no-repeat 50%;
+      background-size: cover;
+      left: 5px;}
+
+  35% {left: 0;}
+
+  40% {background: url('../img/Attachment-1.jpeg')no-repeat 50%;
+      background-size: cover;
+  }
+
+  45% {left: 5px;}
+
+  50% {left: 0;}
+
+  100% {
+  }
 }
 
-
+.
 
 #thumbnails {
 	list-style: none;
@@ -265,11 +302,14 @@ a:hover, a:visited, a:link, a:active
 #thumbnails li img {
   display: block;
   width: 100%
-  
-  
 }
 
+/*Photo Page
+=============================================*/
 
+#photos {
+  position: relative;
+}
 
 /***********************************************
             Music Page
@@ -278,16 +318,16 @@ a:hover, a:visited, a:link, a:active
 .music {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background: dimgrey;
-  width: 90%;
-  margin: 5% auto;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
   
 }
 
 iframe {
-    margin: 0 auto;
-    padding: 20px
+  border:  5px solid black;
+  margin: 10px auto;
+
 }
 
 
@@ -340,48 +380,6 @@ iframe {
     
 }
 
-/***********************************************
-            Canvas Page
-***********************************************/
-
-.animation {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-#my_canvas {
-    z-index: -5 ;
-    position: absolute;
-    width: 100%;
-    height: 6em;
-    
-    
-
-
-   
-}
-
-#my_canvas: hover {
-	display: inline-block;
-    position: absolute;
-    display: none;
-}
-
-#canvas1 {
-  position: relative;
-  width: 100%;
-  height: 100%;
-    
-	
-}
-
-#canvas2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 
 /***********************************************
             Social Media Icons
@@ -396,86 +394,78 @@ iframe {
   margin: 0 auto;
 	width: 100%;
 	padding-bottom: .5rem;
-    
-    
 }
 
 
 .twitter {
-    
-    background: url('../img/social/03-twitter.svg') center no-repeat;
-    position: relative;
-    background-size: contain;
-    width: 30px;
-    height: 5%;
-    padding-bottom: 8%;
+  background: url('../img/social/03-twitter.svg') center no-repeat;
+  position: relative;
+  background-size: contain;
+  width: 30px;
+  height: 5%;
+  padding-bottom: 8%;
   margin: 3%;
 }
 
 .twitter a {
 	position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    text-decoration: none;
-    z-index: 10;
-    background-color: #fff;
-    opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  z-index: 10;
+  background-color: #fff;
+  opacity: 0;
 }
 
 .insta a {
 	position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    text-decoration: none;
-    z-index: 10;
-    background-color: #fff;
-    opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  z-index: 10;
+  background-color: #fff;
+  opacity: 0;
 }
 
 .twitter a {
 	position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    text-decoration: none;
-    z-index: 10;
-    background-color: #fff;
-    opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  z-index: 10;
+  background-color: #fff;
+  opacity: 0;
 }
 
 .linkdin a {
 	position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    text-decoration: none;
-    z-index: 10;
-    background-color: #fff;
-    opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  z-index: 10;
+  background-color: #fff;
+  opacity: 0;
 }
 
 .github a {
 	position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    text-decoration: none;
-    z-index: 10;
-    background-color: #fff;
-    opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  z-index: 10;
+  background-color: #fff;
+  opacity: 0;
 }
-
-
-
-
-
 
 .insta {
     background: url('../img/social/38-instagram.svg') center no-repeat;
@@ -534,7 +524,11 @@ iframe {
 ***********************************************/
 
 @media screen and ( min-width: 56em ) {
-    
+
+
+
+
+
    .wrapper {
         display: block;
     }

@@ -1,21 +1,59 @@
+"use strict";
+const menuButton = document.querySelector('.nav');
+const toggleMenu = document.querySelector('.nav_menu');
+const menu = document.querySelector('#menu');
+const classes = document.getElementById("menu").classList;
 
-$(document).ready(function() {
-  
-  
-  
-  
 
   
   //Function to show or hide menu bar depending on screen size
-  function checkSize() {
-  if($(window).width() <= 898 ) {
-    $('#menu').hide();
+const checkSize = () => {
+  if(window.innerWidth <= 898 ) {
+    menu.style.display = 'none';
   } else {
-    $('#menu').show();
+    menu.style.display = 'block';
     }
   }
+
   
-  //Check size of screen on page load
+  
+
+//AJAX to load links to page
+  $('#menu a, #heading').on('click', function(e) {
+  e.preventDefault();
+  const url = this.href;
+  menuButton.innerHTML = 'MENU'
+  $('#container').remove();
+  $("#content").load(url).hide().toggle("fold", 1000);
+  checkSize();
+  });
+  
+toggleMenu.addEventListener('click', () => {
+
+  if (menu.style.display == 'none') {
+      menu.style.display = 'flex';
+      menuButton.innerHTML = 'CLOSE';
+  } else {
+      menu.style.display = 'none';
+      menuButton.innerHTML = 'MENU'
+      }
+});
+  //Jquery for toggling Nav menu
+  /*jQuery(document).ready(function($){
+  $('.nav_menu').on('click', function() {
+    $('#menu').toggle("slow");
+    });
+  });*/
+
+
+   [].forEach.call(document.querySelectorAll('#thumbnails a'), function(el) {
+    el.addEventListener('click', function () {
+      event.preventDefault();
+      console.log('test');
+    });
+  });
+
+//Check size of screen on page load
   checkSize();
 
   //Check size of screen on resize of window
@@ -24,40 +62,6 @@ $(document).ready(function() {
 
   //Jquery to load intro to webpage
   $('#container').load('intro.html');
-  
-  
-
-//AJAX to load links to page
-  $('#menu a, #heading').on('click', function(e) {
-  e.preventDefault();
-  var url = this.href;
-  
-  $('#container').remove();
-  $("#content").load(url).hide().toggle("fold", 1000);
-  checkSize();
-  });
-  
-
-  //Jquery for toggling Nav menu
-  jQuery(document).ready(function($){
-  $('.nav_menu').on('click', function() {
-    $('#menu').toggle("slow");
-    });
-  });
-
-  $("#thumbnails a").on('click', function(event) {
-    event.preventDefault();
-    console.log('test');
-    
-});
-  
-  
-
-  
-});
-
-
-
 
 
 
@@ -65,13 +69,13 @@ $(document).ready(function() {
 //Function to input content to a div using innerHTML
 document.getElementById("#press").onclick =
  function displayContent () {
-    var first = document.getElementById("input").value;
+    const first = document.getElementById("input").value;
     document.getElementById("output").innerHTML = "<p>" + first + "</p>";
 }
     
 function displayContent() {
-  var info = documet.getElementById('info').value;
-  var content = "<p>" + info + "</p>";
+  const info = documet.getElementById('info').value;
+  const content = "<p>" + info + "</p>";
   document.getElementById('output').innerHTML = content;
    
 }
@@ -98,3 +102,5 @@ function displayContent() {
             $('.biopic').effect('shake');
         }
     });*/
+
+
