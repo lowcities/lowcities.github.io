@@ -27,7 +27,6 @@ let Carousel = function(frameSelector, sliderSelector, slidesSelector, leftArwBt
   //Function that moves the slides left or right depending on variable value
   //Moves to the next slide if value is -1, moves to the previous is value is 1
   let moveSlide = function(value) {
-    console.log("slide test");
     leftPosition += value * 100;
     slider.style.left = leftPosition + '%';
   };
@@ -36,10 +35,8 @@ let Carousel = function(frameSelector, sliderSelector, slidesSelector, leftArwBt
     //Function to move to the next slide
     next: function() {
       if(leftPosition > (slideNumber -1) * -100) {
-        console.log("test");
         moveSlide(-1);
       } else {
-        console.log("test");
         leftPosition = 0;
         slider.style.left = leftPosition + '%';
       }
@@ -47,11 +44,9 @@ let Carousel = function(frameSelector, sliderSelector, slidesSelector, leftArwBt
     //Function to go to previous slide
     previous: function() {
       if(leftPosition !== 0) {
-        console.log("test");
         moveSlide(1);
       } else {
         leftPosition = (slideNumber -1) * -100;
-        console.log("test");
         slider.style.left = leftPosition + '%';
       }
     }
@@ -61,4 +56,4 @@ let Carousel = function(frameSelector, sliderSelector, slidesSelector, leftArwBt
 };
 
   //Create new instance of Carousel
-  let carousel = new Carousel('.photoFrame', '#slider', '#slider .slide', '.arrowLeft', '.arrowRight');
+  let carousel = new Carousel('#photoFrame', '#slider', '#slider .slide', '.arrowLeft', '.arrowRight');
