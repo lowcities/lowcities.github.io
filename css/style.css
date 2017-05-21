@@ -2,36 +2,22 @@
 FONTS
 **********************************************************/
 @font-face {
+  font-weight: normal;
+  font-style: normal;
   font-family: 'PFT';
   src: url('PFT/PFTempestaFiveExtended.eot?#iefix') format('embedded-opentype'),  url('PFT/PFTempestaFiveExtended.woff') format('woff'), url('PFT/PFTempestaFiveExtended.ttf')  format('truetype'), url('PFT/PFTempestaFiveExtended.svg#PFTempestaFiveExtended') format('svg');
-  font-weight: normal;
-  font-style: normal;
 }
 @font-face {
-    font-family: 'Destroy';
-    src: url('Destroy/DESTROY_.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'destroyregular';
+    src: url('destroy/destroy_-webfont.eot');
+    src: url('destroy/destroy_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('destroy/destroy_-webfont.woff') format('woff'),
+         url('destroy/destroy_-webfont.ttf') format('truetype'),
+         url('destroy/destroy_-webfont.svg#destroyregular') format('svg');
 }
-
-@font-face {
-    font-family: 'horse';
-    src: url('horsepuke/horsepuke.ttf');
-}
-
-@font-face {
-    font-family: 'impact';
-    src: url('Impact-Label/Impact_Label.ttf');
-}
-
-
-@font-face { font-family: 'HACKED'; src: url('HACKED/HACKED.eot?#iefix') format('embedded-opentype'), url('HACKED/HACKED.woff') format('woff'), url('HACKED/HACKED.ttf') format('truetype'), url('HACKED/HACKED.svg#HACKED') format('svg'); font-weight: normal; font-style: normal; }
-
-@font-face {
-  font-family: 'Shrapnel';
-  src: url('Shrapnel/Shrapnel.eot?#iefix') format('embedded-opentype'),  url('Shrapnel/Shrapnel.otf')  format('opentype'),
-	     url('Shrapnel/Shrapnel.woff') format('woff'), url('Shrapnel/Shrapnel.ttf')  format('truetype'), url('Shrapnel/Shrapnel.svg#Shrapnel') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+@font-face {font-weight: normal; font-style: normal;  font-family: 'hacked'; src: url('hacked/hacked.eot?#iefix') format('embedded-opentype'), url('hacked/hacked.woff') format('woff'), url('hacked/hacked.ttf') format('truetype'), url('hacked/hacked.svg#hacked') format('svg'); }
 
 /*******************************************************
 MAIN ELEMENT STYLES
@@ -39,82 +25,84 @@ MAIN ELEMENT STYLES
 
 a {
   color: inherit;
-  text-decoration: none;
   cursor: pointer;
+  text-decoration: none;
 }
 
-#menu ul {
+.menu ul {
   z-index: 9;
 }
 
-#menu li {
+.menu li {
   list-style: none;
 }
 
 .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  position: fixed;
-  top: 0px;
-  left: 0px;
   background: url('../img/pattern2.png') repeat top left;
   opacity: .4;
 }
 
 body {
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  background: grey;
+  margin: 0 auto;
   min-height: 100vh;
+  background: grey;
 }
 
 
 header {
-  background: url('../img/wall.jpg') repeat;
-  background-size: cover;
-  width: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
-  height: 0 auto;
-  position: relative;
+  width: 100%;
+  height: auto;
+  background: url('../img/wall.jpg') repeat;
+  background-size: cover;
 }
 
 
 
 .wrapper {
+  left: 0;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  left: 0;
   margin: 0;
-  flex: 1;
   width: 100%;
+
+  align-items: flex-start;
+  flex: 1;
 }
 
 
 
-#content {
+.content {
   width: 100%;
   height: auto;
 }
 
-#container {
+.container {
+  position: relative;
   width: 100%;
 }
 
-#home {
+.home {
   display: inline-block;
 }
 
 .intro {
-  text-align: center;
   position:relative;
-  font-family: 'PFT', sans-serif;
-  font-size: 1.2em;
   margin: 10px 30px 10px 30px;
   padding: 10px;
   background-color: dimgrey;
+  text-align: center;
+  font-size: 1.2em;
+  font-family: 'PFT', sans-serif;
 }
 
 .intro p {
@@ -122,34 +110,25 @@ header {
   z-index: 2;
 }
 
-#menu  {
-  font-family: hacked;
-  font-size: 1.8em;
-  line-height: 1.6;
-  height: auto;
-  background: linear-gradient(to bottom, dimgrey 10%, transparent);
+.menu  {
+  position: relative;
 	padding-top: 2%;
   padding-right: 10%;
-  position: relative;
-  display: flex;
-
-}
-
-.show {
-  display: flex;
-}
-
-footer {
+  height: auto;
+  background: linear-gradient(to bottom, dimgrey 10%, transparent);
+  font-size: 1.8em;
   font-family: 'hacked', sans-serif;
-  text-align: center;
+  line-height: 1.6;
+}
+footer {
   margin: 0 auto;
 	width: 100%;
+  text-align: center;
+  font-family: 'hacked', sans-serif;
 }
-
-footer h2 {
+ h2 {
 	font-size: 1.5rem
 }
-
 a:hover, a:visited, a:link, a:active
 {
   color: inherit;
@@ -161,215 +140,186 @@ a:hover, a:visited, a:link, a:active
 ***********************************************/
 
 .nav_menu {
-  font-family: 'Destroy';
-  font-size: .2em;
-  cursor: pointer;
   position: relative;
-  align-items: center;
-  background-color: rgba(100, 96, 96, .6);
-  width: 120px;
+  z-index: 9;
   margin-top: 18px;
   padding-left: 0.5rem;
-  z-index: 9;
-  
-}
+  width: 120px;
+  background-color: rgba(100, 96, 96, .6);
+  font-size: .2em;
+  font-family: 'destroyregular';
+  cursor: pointer;
 
+  align-items: center;
+}
 .nav_menu:hover {
   background-color: dimgrey;
 }
-
 .button  {
   padding-top: 6px;
   width: 20px;
 }
-
 .nav {
-  width: 90px;
-  padding-left: 6px;
-  padding-top: 9px;
-  overflow: hidden;
   position: relative;
   z-index: 4;
   float: right;
+  overflow: hidden;
+  padding-top: 9px;
+  padding-left: 6px;
+  width: 90px;
 }
-
-
+.show {
+  display: flex;
+}
+.hide {
+  display: none;
+}
 
 /***********************************************
             Image Styles
 ***********************************************/
 
 a.logo {
-  text-align: center;
   margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 20px;
+  max-width: 350px;
   width: 80%;
-  max-width: 500px;
+  text-align: center;
  }
 .logo img {
-  height: 0 auto;
   width: 100%;
-
+  height: 0 auto;
 }
-
-/*
-.city {
- animation: zap 1s infinite;
- animation-direction: alternate-reverse;
-}
-*/
-
-
 @keyframes zap {
   0% { opacity: .10;}
   100% { opacity: 1;}
 }
-
 .biopic {
+  position: relative;
+  z-index: 1;
+  float: left;
+  margin: 10px;
+  padding-top: 17.5%;
+  max-width: 250px;
+  width: 50%;
+  height: 100px;
   background: url('../img/Attachment-1.jpeg')no-repeat 50% 0;
+  background-position: center;
+  background-size: 100% auto;
   animation: shift 1s;
   animation-iteration-count: 3;
   animation-direction: alternate-reverse;
-  background-size: 100% auto;
-  background-position: center;
-  margin: 10px;
-  position: relative;
-  float: left;
-  padding-top: 17.5%;
-  width: 50%;
-  height: 100px;
-  max-width: 250px;
-  z-index: 1;
 }
 
 @keyframes shift {
-
-  0% {background: url('../img/distort.jpg')no-repeat 50%;
-      background-size: cover;
+  0% {
+    background: url('../img/distort.jpg')no-repeat 50%;
+    background-size: cover;
   }
-
-  10% {background: url('../img/Attachment-1.jpeg')no-repeat 50%;
-      background-size: cover;
-
+  10% {
+    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
+    background-size: cover;
   }
-
-  20% {
-      left: 5px;
+  20% { left: 5px; }
+  25% { left: 0; }
+  30% {
+    left: 5px;
+    background: url('../img/distort.jpg')no-repeat 50%;
+    background-size: cover;
   }
-
-  25% {left: 0;}
-
-  30% {background: url('../img/distort.jpg')no-repeat 50%;
-      background-size: cover;
-      left: 5px;}
-
-  35% {left: 0;}
-
-  40% {background: url('../img/Attachment-1.jpeg')no-repeat 50%;
-      background-size: cover;
+  35% { left: 0; }
+  40% {
+    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
+    background-size: cover;
   }
-
   45% {left: 5px;}
-
   50% {left: 0;}
-
   100% {
   }
 }
-
-.
-
 #thumbnails {
-	list-style: none;
+  position: relative;
+  display: block;
   margin: 20% auto;
   padding: 0;
-  display: block;
   max-width: 100%;
+	list-style: none;
   text-align: center;
-  position: relative;
-}
-
-#thumbnails li {
-  display: inline-block;
-  padding: 8px;
-  background: black;
-  margin: 10px;
-  width: 20%;
-  
-}
-
-#thumbnails li img {
-  display: block;
-  width: 100%
 }
 
 /*Photo Page
 =============================================*/
 
-#photos {
-  position: relative;
+.arrowLeft {
+	float: left;
+  z-index: 1;
 }
+.arrowRight {
+	float: right;
+  z-index: 1;
+}
+.photoContainer {
+	display: flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items:center;
+  width: 100%;
+}
+.photoFrame {
+/*  position: absolute;*/
+
+  left: 0; right: 0;
+  height: 500px; width: 100%; max-width: 900px;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 1;
+}
+.slider {
+
+  position: relative;
+  transition: 1s;
+  height: 110%;
+}
+.slide {
+  height: 100%; width: 100%;
+  margin: 0 -4px 0 0;
+  display: inline-block;
+}
+.picture1 {
+	background: url("../img/0969.jpg") no-repeat center;
+  background-size: contain;
+}
+.picture2 {
+	background: url("../img/1027.jpg") no-repeat center;
+  background-size: contain;
+}
+.picture3 {
+	background: url("../img/1334.jpg") no-repeat center;
+  background-size: contain;
+}
+.picture4 {
+	background: url("../img/1436.jpg") no-repeat center;
+  background-size: contain;
+}
+
 
 /***********************************************
             Music Page
 ***********************************************/
 
 .music {
+  position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%;
   margin: 0 auto;
-  position: relative;
-  
+  width: 100%;
 }
-
 iframe {
-  border:  5px solid black;
   margin: 10px auto;
-
+  border:  5px solid black;
 }
 
-
-/***********************************************
-            Input Page
-***********************************************/
-
-.hey {
-    position: relative;
-    background-color: dimgray;
-    display: block;
-    height: 100px;
-    width: 80%;
-    margin: 20px auto;
-}
-
-.form {
-    display: flex;
-    flex-direction: row;
-    width: 80%;
-    margin: 0 auto;
-    justify-content: space-around;
-    position: relative;
-    height: 200px;
-    width: 80%
-}
-
-#input {
-    background-color: dimgray;
-    width: 40%;
-    height: auto;
-	
-}
-    
-
-
-#output {
-    position: relative;
-	width: 40%;
-    background-color: dimgray;
-    
-}
 
 /***********************************************
             Button Styles
@@ -377,7 +327,6 @@ iframe {
 
 .click {
     background-color: aliceblue;
-    
 }
 
 
@@ -388,113 +337,107 @@ iframe {
 .social {
   display: flex;
   flex-direction: row;
+  margin: 0 auto;
+	padding-bottom: .5rem;
+	width: 100%;
+
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-	width: 100%;
-	padding-bottom: .5rem;
 }
 
 
 .twitter {
-  background: url('../img/social/03-twitter.svg') center no-repeat;
   position: relative;
-  background-size: contain;
+  margin: 3%;
+  padding-bottom: 8%;
   width: 30px;
   height: 5%;
-  padding-bottom: 8%;
-  margin: 3%;
+  background: url('../img/social/03-twitter.svg') center no-repeat;
+  background-size: contain;
 }
 
 .twitter a {
 	position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
-  text-decoration: none;
   z-index: 10;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
+  text-decoration: none;
   opacity: 0;
 }
 
 .insta a {
 	position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
-  text-decoration: none;
   z-index: 10;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
+  text-decoration: none;
   opacity: 0;
 }
 
 .twitter a {
 	position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
-  text-decoration: none;
   z-index: 10;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
+  text-decoration: none;
   opacity: 0;
 }
-
 .linkdin a {
 	position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
-  text-decoration: none;
   z-index: 10;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
+  text-decoration: none;
   opacity: 0;
 }
-
 .github a {
 	position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
-  text-decoration: none;
   z-index: 10;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
+  text-decoration: none;
   opacity: 0;
 }
-
 .insta {
-    background: url('../img/social/38-instagram.svg') center no-repeat;
-    background-size: contain;
-    position: relative;
-    width: 30px;
-    height: 0;
-    margin: 3%;
-    padding-bottom: 8%
-}
-
-
-
-.linkdin {
-    background: url('../img/social/11-linkedin.svg') center no-repeat;
-   background-size: contain;
-    width: 30px;
-    height: 0;
-    margin: 3%;
-    padding-bottom: 8%;
-}
-
-.github {
-    background: url('../img/41-github.svg') center no-repeat;
-    background-size: contain;
-    width: 30px;
-    height: 0;
-    padding-bottom: 8%;
+  position: relative;
   margin: 3%;
+  padding-bottom: 8%;
+  width: 30px;
+  height: 0;
+  background: url('../img/social/38-instagram.svg') center no-repeat;
+  background-size: contain;
+}
+.linkdin {
+  margin: 3%;
+  padding-bottom: 8%;
+  width: 30px;
+  height: 0;
+  background: url('../img/social/11-linkedin.svg') center no-repeat;
+  background-size: contain;
+}
+.github {
+  margin: 3%;
+  padding-bottom: 8%;
+  width: 30px;
+  height: 0;
+  background: url('../img/41-github.svg') center no-repeat;
+  background-size: contain;
 }
 
 
@@ -525,35 +468,28 @@ iframe {
 
 @media screen and ( min-width: 56em ) {
 
+  .wrapper {
+    display: block;
+  }
+  .nav_menu {
+    display: none;
+  }
+  .menu {
+    position: relative;
+    left: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+  }
+  .menu ul {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    padding: 0;
 
-
-
-
-   .wrapper {
-        display: block;
-    }
-    
-    .nav_menu {
-        display: none;
-}
-  #menu { 
-  
-      position: relative;
-      left: 0;
-      width: 100%;
-      height: auto;
-      padding: 0;
-}
-    
-    #menu ul {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
-        margin: 0 auto;
-      padding: 0;
-    }   
-  
+    align-items: center;
+    justify-content: space-around;
+  }
   .social {
     width: 50%;
   }

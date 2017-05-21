@@ -1,0 +1,31 @@
+<div id="quoteContainer">
+  <div id="quoteBox"></div>
+  <button class="quoteButton" type="button">HERZOG</button>
+</div>
+
+<script>
+  const quoteBox = document.getElementById("quoteBox");
+  const quoteButton = document.querySelector('.quoteButton');
+  const xhr = new XMLHttpRequest();
+
+  const randQuote = (min, max) => {
+    return Math.floor(Math.random() * (max - min)) + min;
+  };
+//  Function recieves prompt from quote button click to retrieve random quote from quote.json and post it in HTML form to the quote box div
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === 4) {
+      let quotes = JSON.parse(xhr.responseText);
+      let randNum = randQuote(1, quotes.length);
+      let quoteHTML = '<p class="quote">' + quotes[randNum].quote + '</p>';
+      quoteBox.innerHTML = quoteHTML;
+      console.log(quoteHTML);
+
+    }
+  };
+  //Function to open and send AJAX request everytime quote button is clicked
+  quoteButton.addEventListener('click', () => {
+    xhr.open('GET', 'quote.json');
+    xhr.send();
+  });
+
+</script>

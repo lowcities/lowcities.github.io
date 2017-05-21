@@ -1,32 +1,74 @@
-<div id="photos">
-  <ul id="thumbnails">
-		<li>
-      <a href="/img/first.jpg">
-        <img src="img/first.JPG" alt="sammie2">
-      </a>
-    </li>
-    <li>
-      <a href="img/sam_BW.jpg">
-        <img src="img/sam_BW.JPG" alt="sammie3">
-      </a>
-    </li>
-    <li>
-      <a href="img/beach.jpg">
-        <img src="img/beach.JPG" alt="beach">
-      </a>
-    </li>
-    <li>
-      <a href="img/mixmasterg.jpg">
-        <img src="img/mixmasterg.jpg" alt="mixmasterg">
-      </a>
-    </li>  
-  </ul>
-</div>	
-<script>
-  [].forEach.call(document.querySelectorAll('#thumbnails a'), function(el) {
-    el.addEventListener('click', function () {
-      event.preventDefault();
-      console.log('test');
-    });
-  });
-</script>
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Lowcities</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  </head>
+  <div class="overlay"></div>
+  <header>
+  <a class="logo" href="index.html">
+    <img src="img/lowcitieslogo.svg">
+  </a>
+  <div class="nav_menu">
+    <img class="button" src="img/box.png">
+    <h5 class="nav">MENU</h5>
+  </div>
+</header>
+<body>
+  <div class="wrapper">
+    <div id="menu" class="menu">
+      <ul>
+          <a href="portfolio.html"><li>Portfolio</li></a>
+          <a href="quote.html"><li>Herzog</li></a>
+          <a href="music.html"><li>music</li></a>
+          <a href="photos.html"><li>photography</li></a>
+        </ul>
+      </div>
+      <div class="photoContainer">
+        <img src="img/Double%20Left%20Filled-50.png" class="arrowLeft">
+        <div class="photoFrame">
+            <div id="slider">
+              <div class="slide picture1"></div>
+              <div class="slide picture2"></div>
+              <div class="slide picture3"></div>
+              <div class="slide picture4"></div>
+            </div>
+        </div>
+        <img src="img/Double%20Right%20Filled-50.png" class="arrowRight">
+        </div>
+
+
+
+        </div>
+
+
+
+    <footer>
+		<div class="social">
+			<div class="twitter"><a href="http://twitter.com/lowcities"></a></div>
+			<div class="insta"><a href="http://instagram.com/lowcities"></a></div>
+			<div class="linkdin"></div>
+			<div class="github"></div>
+     	</div>
+		<h2>&copy;2017 David Low</h2>
+
+	</footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="js/processing.min.js"></script>
+  <script src="js/photos.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+
+  </body>
+</html>
