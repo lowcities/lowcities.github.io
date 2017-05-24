@@ -2,16 +2,21 @@
 const menuButton = document.querySelector('.nav');
 const toggleMenu = document.querySelector('.nav_menu');
 const menu = document.querySelector('#menu');
+const content = document.getElementById('content');
 
 
   
-  //Function to show or hide menu bar depending on screen size
+//get
+
+//
+
+//Function to show or hide menu bar depending on screen size
 const checkSize = () => {
   if(window.innerWidth <= 898 ) {
     menu.style.display = 'none';
 
   } else {
-    menu.style.display = 'block';
+    menu.style.display = 'flex';
     }
   }
 
@@ -47,45 +52,28 @@ toggleMenu.addEventListener('click', () => {
 
 
 //Check size of screen on page load
-  checkSize();
-
-  //Check size of screen on resize of window
-  $(window).resize(checkSize);
+checkSize();
 
 
-  //Jquery to load intro to webpage
-//  $('#container').load('intro.html');
+
+//Check size of screen on resize of window
+$(window).resize(checkSize);
+
+const topOfNav = menu.offsetTop;
+
+window.onscroll = (function(e) {
+  let stuck = false;
+  if(window.scrollY >= topOfNav && !stuck) {
+    menu.classList.add('sticky-nav');
+    stuck = true;
+  } else {
+    menu.classList.remove('sticky-nav');
+    stuck = false;
+
+  }
+});
 
 
-//AJAX to load quotes from quote.json
-//
-//xhr.onreadystatechange = () => {
-//  if(xhr.readyState === 4) {
-//    let quotes = JSON.parse(xhr.responseText);
-//    let randNum = randQuote(1, 4);
-//    let quoteHTML = '<p class="quote">' + quotes[randNum].quote + '</p>';
-//    quoteBox.innerHTML = quoteHTML;
-//    console.log(quoteHTML);
-//  }
-//};
-//quoteButton.addEventListener('click', () =>{
-//  xhr.open('GET', 'quote.json');
-//  xhr.send();
-//});
-
-////Function to input content to a div using innerHTML
-//document.getElementById("#press").onclick =
-// function displayContent () {
-//    const first = document.getElementById("input").value;
-//    document.getElementById("output").innerHTML = "<p>" + first + "</p>";
-//}
-//
-//function displayContent() {
-//  const info = documet.getElementById('info').value;
-//  const content = "<p>" + info + "</p>";
-//  document.getElementById('output').innerHTML = content;
-//
-//}
 
 
 

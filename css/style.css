@@ -28,16 +28,6 @@ a {
   cursor: pointer;
   text-decoration: none;
 }
-
-.menu ul {
-  z-index: 9;
-}
-
-.menu li {
-  list-style: none;
-  width: 100%;
-}
-
 .overlay {
   position: fixed;
   top: 0;
@@ -46,6 +36,15 @@ a {
   height: 100%;
   background: url('../img/pattern2.png') repeat top left;
   opacity: .4;
+}
+header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  background: url('../img/wall.jpg') repeat;
+  background-size: cover;
 }
 
 body {
@@ -57,15 +56,6 @@ body {
 }
 
 
-header {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: auto;
-  background: url('../img/wall.jpg') repeat;
-  background-size: cover;
-}
 
 
 
@@ -83,6 +73,7 @@ header {
 
 
 .content {
+  margin-top: 20px;
   width: 100%;
   height: auto;
 }
@@ -92,7 +83,7 @@ header {
   width: 100%;
 }
 
-.home {
+.about {
   display: inline-block;
 }
 
@@ -111,16 +102,7 @@ header {
   z-index: 2;
 }
 
-.menu  {
-  position: relative;
-	padding-top: 2%;
-  padding-right: 10%;
-  height: auto;
-  background: linear-gradient(to bottom, dimgrey 10%, transparent);
-  font-size: 1.8em;
-  font-family: 'hacked', sans-serif;
-  line-height: 1.6;
-}
+
 footer {
   margin: 0 auto;
 	width: 100%;
@@ -135,16 +117,21 @@ footer {
   color: inherit;
 	text-decoration: none;
 }
-a li:hover {
-  color: ghostwhite;
-  transition: 500ms;
-  margin-left: 10px;
 
-}
 /***********************************************
             Mobile Navigation Menu
 ***********************************************/
-
+.menu  {
+  background: #444;
+  display: flex;
+  flex-direction: column;
+  height: auto; width: 100%;
+  font-size: 1.8em;
+  font-family: 'hacked', sans-serif;
+  line-height: 1.6;
+  position: relative;
+  z-index: 9;
+}
 .nav_menu {
   position: relative;
   z-index: 9;
@@ -166,20 +153,30 @@ a li:hover {
   width: 20px;
 }
 .nav {
-  position: relative;
-  z-index: 4;
   float: right;
+  position: relative;
   overflow: hidden;
   padding-top: 9px;
   padding-left: 6px;
   width: 90px;
+  z-index: 4;
 }
-.show {
-  display: flex;
+.navItem {
+  box-shadow: inset 0 1px 0 #111, 0 2px 0 #666;
+  padding: 2px;
+  text-align: center;
 }
-.hide {
-  display: none;
+.navItem:hover {
+  color: azure;
+  transition: 700ms;
+  box-shadow: inset 1px 3px 1px black, inset -1px 0 1px black;
+  text-shadow: 0 0 20px white;
 }
+.navLogo  {
+	display: none;
+}
+
+
 
 /***********************************************
             Image Styles
@@ -481,22 +478,59 @@ iframe {
     display: none;
   }
   .menu {
-    position: relative;
-    left: 0;
+
     padding: 0;
     width: 100%;
     height: auto;
   }
-  .menu ul {
+  .menu {
     display: flex;
     flex-direction: row;
+    width: 100%;
     margin: 0 auto;
-    padding: 0;
-
-    align-items: center;
-    justify-content: space-around;
+    background-color: #111;
+    background-image: linear-gradient(#444, #222);
+    border-radius: 6px;
+    box-shadow: 0 1px 1px #777;
   }
-  .social {
+  .navItem {
+    border-right: 1px solid #222;
+/*    box-shadow: -5px 0 0 #444;*/
+    width: 100%;
+    color: dimgrey;
+  }
+  .navItem:hover {
+    border-right: none;
+/*    border-top: 2px solid #222;*/
+    box-shadow: inset -1px 3px 0 black, inset 1px 0 2px black;
+/*    box-shadow: 0 20px 50px -1px white;*/
+    position: relative;
+/*    top: 2px;*/
+    transition: 200ms;
+  }
+  .sticky-nav {
+    position: fixed;
+    box-shadow: 0 5px rgba(0, 0, 0, 0.1);
+    top: 0;
+}
+  .navLogo {
+    background: dimgrey;
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    max-width: 0;
+    transition: all 0.5s;
+    text-align: center;
+    opacity: 9;
+}
+  .navlogo:hover {
+    color: azure;
+    transition: 700ms;
+}
+.sticky-nav .navLogo {
+	max-width: 150px;
+  }
+.social {
     width: 50%;
   }
   
