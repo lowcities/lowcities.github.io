@@ -81,12 +81,18 @@ body {
 .container {
   position: relative;
   width: 100%;
+  height: auto;
+  margin-bottom: 10%;
+  opacity: 0;
+  transition: all .5s;
 }
 
+.container-show {
+	opacity: 1;
+}
 .about {
   display: inline-block;
 }
-
 .intro {
   position:relative;
   margin: 10px 30px 10px 30px;
@@ -101,15 +107,37 @@ body {
   position: relative;
   z-index: 2;
 }
-
-
+.full {
+  margin: 0 auto;
+  width: 90%;
+}
 footer {
   margin: 0 auto;
 	width: 100%;
   text-align: center;
   font-family: 'hacked', sans-serif;
 }
- h2 {
+h1{
+  background-color: #111;
+  background-image: linear-gradient(#444, #222);
+  border-radius: 6px;
+  box-shadow: 0 1px 1px #777;
+  font-family: 'hacked', sans-serif;
+	text-align: center;
+  color: dimgrey;
+  font-size: 250%;
+  margin-bottom: 10%;
+
+}
+.headline {
+  transform: translateX(-100%) scale(0.25);
+  transition: all .5s;
+}
+.headline-show{
+  transform: translateX(0%) scale(1);
+
+}
+h2 {
 	font-size: 1.5rem
 }
  a:visited, a:link, a:active
@@ -176,8 +204,6 @@ footer {
 	display: none;
 }
 
-
-
 /***********************************************
             Image Styles
 ***********************************************/
@@ -193,10 +219,6 @@ a.logo {
 .logo img {
   width: 100%;
   height: 0 auto;
-}
-@keyframes zap {
-  0% { opacity: .10;}
-  100% { opacity: 1;}
 }
 .biopic {
   position: relative;
@@ -215,6 +237,84 @@ a.logo {
   animation-direction: alternate-reverse;
 }
 
+@-webkit-keyframes shift {
+  0% {
+    background: url('../img/distort.jpg')no-repeat 50%;
+    background-size: cover;
+  }
+  10% {
+    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
+    background-size: cover;
+  }
+  20% { left: 5px; }
+  25% { left: 0; }
+  30% {
+    left: 5px;
+    background: url('../img/distort.jpg')no-repeat 50%;
+    background-size: cover;
+  }
+  35% { left: 0; }
+  40% {
+    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
+    background-size: cover;
+  }
+  45% {left: 5px;}
+  50% {left: 0;}
+  100% {
+  }
+}
+@-moz-keyframes shift {
+  0% {
+    background: url('../img/distort.jpg')no-repeat 50%;
+    background-size: cover;
+  }
+  10% {
+    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
+    background-size: cover;
+  }
+  20% { left: 5px; }
+  25% { left: 0; }
+  30% {
+    left: 5px;
+    background: url('../img/distort.jpg')no-repeat 50%;
+    background-size: cover;
+  }
+  35% { left: 0; }
+  40% {
+    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
+    background-size: cover;
+  }
+  45% {left: 5px;}
+  50% {left: 0;}
+  100% {
+  }
+}
+@-o-keyframes shift {
+  0% {
+    background: url('../img/distort.jpg')no-repeat 50%;
+    background-size: cover;
+  }
+  10% {
+    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
+    background-size: cover;
+  }
+  20% { left: 5px; }
+  25% { left: 0; }
+  30% {
+    left: 5px;
+    background: url('../img/distort.jpg')no-repeat 50%;
+    background-size: cover;
+  }
+  35% { left: 0; }
+  40% {
+    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
+    background-size: cover;
+  }
+  45% {left: 5px;}
+  50% {left: 0;}
+  100% {
+  }
+}
 @keyframes shift {
   0% {
     background: url('../img/distort.jpg')no-repeat 50%;
@@ -241,48 +341,31 @@ a.logo {
   100% {
   }
 }
-#thumbnails {
-  position: relative;
-  display: block;
-  margin: 20% auto;
-  padding: 0;
-  max-width: 100%;
-	list-style: none;
-  text-align: center;
-}
 
 /*Photo Page
 =============================================*/
 
 .arrowLeft {
-	float: left;
   z-index: 1;
 }
 .arrowRight {
-	float: right;
+
   z-index: 1;
 }
-.photoContainer {
-	align-items:center;
-  display: flex;
-  flex-direction: row;
-  justify-content:center;
-  width: 100%;
-}
-.photoFrame {
-/*  position: absolute;*/
 
+.photoFrame {
+  margin: 0 auto;
   left: 0; right: 0;
-  height: 500px; width: 100%; max-width: 900px;
+  height: 450px; width: 100%; max-width: 900px;
+  max-height: 600px;
   white-space: nowrap;
   overflow: hidden;
   z-index: 1;
 }
 .slider {
-
   position: relative;
   transition: 1s;
-  height: 110%;
+  height: 80%;
 }
 .slide {
   height: 100%; width: 100%;
@@ -310,17 +393,22 @@ a.logo {
 /***********************************************
             Music Page
 ***********************************************/
-
-.music {
+.music-info {
+  font-family: 'hacked', sans-serif;
+  font-size: 1.3rem;
+  background: dimgrey;
+  padding: 1rem;
+}
+.track {
+  text-align: center;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: inline-block;
   margin: 0 auto;
   width: 100%;
 }
 iframe {
   margin: 10px auto;
-  border:  5px solid black;
+  box-shadow: 2px 2px 0 black;
 }
 
 
@@ -343,7 +431,6 @@ iframe {
   margin: 0 auto;
 	padding-bottom: .5rem;
 	width: 100%;
-
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
@@ -450,20 +537,33 @@ iframe {
 ***********************************************/
 
 .overlay {
-    animation: pulse 2s infinite;
-    animation-direction: alternate-reverse;
+  -webkit-animation: pulse 2s infinite;
+  -moz-animation: pulse 2s infinite;
+  -o-animation: pulse 2s infinite;
+  animation: pulse 2s infinite;
+  animation-direction: alternate;
 }
 
+@-webkit-keyframes pulse {
+  0% { opacity: .6; }
+
+  100% { opacity: .2; }
+  }
+@-moz-keyframes pulse {
+  0% { opacity: .6; }
+
+  100% { opacity: .2; }
+  }
+@-o-keyframes pulse {
+  0% { opacity: .6; }
+
+  100% { opacity: .2; }
+  }
 @keyframes pulse {
-   0% {
-       opacity: .6;
-    }
-    
-    100% {
-        opacity: .2;
-    }
-    
-}
+  0% { opacity: .6; }
+
+  100% { opacity: .2; }
+  }
 
 /***********************************************
             Media Queries
@@ -510,7 +610,7 @@ iframe {
   }
   .sticky-nav {
     position: fixed;
-    box-shadow: 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px 1px white;
     top: 0;
 }
   .navLogo {
@@ -527,10 +627,36 @@ iframe {
     color: azure;
     transition: 700ms;
 }
-.sticky-nav .navLogo {
-	max-width: 150px;
+  .sticky-nav .navLogo {
+    max-width: 150px;
   }
-.social {
+  .music-info  {
+    font-size: 1.3rem;
+    background: dimgrey;
+    padding: 1rem;
+    width: 100%;
+}
+  .track {
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  width: 50%;
+}
+  .track1{
+    float: right;
+  }
+  .track2 {
+	float: left;
+}
+  .arrowLeft {
+	float: left;
+  z-index: 1;
+}
+.arrowRight {
+	float: right;
+  z-index: 1;
+  .social {
     width: 50%;
   }
   
