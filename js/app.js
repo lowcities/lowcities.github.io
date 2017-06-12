@@ -1,67 +1,67 @@
 "use strict";
 const menuButton = document.querySelector('.nav');
 const toggleMenu = document.querySelector('.nav_menu');
-const menu = document.querySelector('#menu');
-const content = document.getElementById('content');
-const containers = document.querySelectorAll('.container');
-const link = document.getElementById('menu a');
-const topOfNav = menu.offsetTop;
+const menuBar = document.getElementById('menu');
+const fadeContainers = document.querySelectorAll('.fade-container');
+const link = document.querySelectorAll('.navItem');
+const topOfNav = menuBar.offsetTop;
+const topOfMobile = toggleMenu.offsetTop;
+const navLogo = document.querySelector('.navLogo');
 const headers = document.querySelectorAll('.headline');
-//get
-
-//
 
 //Function to show or hide menu bar depending on screen size
-const checkSize = () => {
-  if(window.innerWidth <= 898 ) {
-    menu.style.display = 'none';
-
-  } else {
-    menu.style.display = 'flex';
+function checkSize() {
+  if(window.innerWidth <= 898) {
+    menuBar.classList.add('menu-hide');
+    menuBar.classList.add('sticky-mobile');
+    menuButton.innerHTML = 'MENU';
+}
+  else {
+    menuBar.classList.remove('menu-hide');
+    menuBar.classList.remove('sticky-mobile');
     }
   }
 
-//AJAX to load links to page
-//  $('#menu a, #heading').on('click', function(e) {
-//  e.preventDefault();
-//  const url = this.href;
-//  menuButton.innerHTML = 'MENU'
-//  $('#container').remove();
-//  $("#content").load(url).hide().toggle("fold", 1000);
-//  checkSize();
-//  });
 
-
-
-toggleMenu.addEventListener('click', () => {
-  if (menu.style.display == 'none') {
-      menu.style.display = 'flex';
-      menuButton.innerHTML = 'CLOSE';
-  } else {
-      menu.style.display = 'none';
-      menuButton.innerHTML = 'MENU'
-      }
+//Function closes mobile menu if a link is clicked.
+link.forEach(function(item) {
+  item.addEventListener('click', checkSize);
 });
-//Check size of screen on page load
-checkSize();
-//Check size of screen on resize of window
-$(window).resize(checkSize);
+
+//function opens or closes nav menu in mobile view
+function mobileMenuToggle(e) {
+  if (menuBar.classList.contains('menu-hide')) {
+      menuBar.classList.remove('menu-hide');
+      menuButton.innerHTML = 'CLOSE';
+  }
+  else {
+      menuBar.classList.add('menu-hide');
+      menuButton.innerHTML = 'MENU';
+      }
+}
 
 
 //creates a sticky nav bar when window is scrolled to the top of nav bar.
-window.onscroll = (function(e) {
-  let stuck = false;
-  if(window.scrollY >= topOfNav && !stuck) {
-    menu.classList.add('sticky-nav');
-    stuck = true;
+function stickyNav(e) {
+  if(window.innerWidth >= 898 && window.scrollY >= topOfNav) {
+    menuBar.classList.add('sticky-nav');
   } else {
-    menu.classList.remove('sticky-nav');
-    stuck = false;
-
+    menuBar.classList.remove('sticky-nav');
   }
-});
+}
 
-  function debounce(func, wait = 20, immediate = true) {
+//Creates a sticky mobile menu when window is scrolled to top of mobile menu button
+function stickyMobileMenu(e) {
+  if(window.innerWidth <= 898 && window.scrollY >= topOfMobile) {
+    toggleMenu.classList.add('sticky-nav-button');
+//    menuBar.classList.add('sticky-mobile');
+  }
+  else {
+    toggleMenu.classList.remove('sticky-nav-button');
+  }
+}
+
+function debounce(func, wait = 20, immediate = true) {
       var timeout;
       return function() {
         var context = this, args = arguments;
@@ -78,12 +78,13 @@ window.onscroll = (function(e) {
 
 //Show or hide content based on window position
 function showContent(e) {
-  containers.forEach(container => {
-    //half way through container
-    const showContainerAt = (window.scrollY + window.innerHeight) - container.offsetHeight / 8;
-    //botom of the container
+  fadeContainers.forEach(container => {
+    //screen position at which content fades in
+    const showContainerAt = (window.scrollY + window.innerHeight) - container.offsetHeight / 5;
+    //bottom of the container
     const containerBottom = container.offsetTop + container.offsetHeight;
     const isHalfShown = showContainerAt > container.offsetTop;
+    //content is still visible on the screen
     const isNotScrolledPast = window.scrollY < containerBottom;
     if(isHalfShown && isNotScrolledPast) {
       container.classList.add('container-show');
@@ -96,9 +97,12 @@ function showContent(e) {
 
 function showHeadline(e) {
   headers.forEach(headline => {
+    //Screen position at which headline slides in
     const showHeadlineAt = (window.scrollY + window.innerHeight) - headline.offsetHeight;
+    //Bottom position of headline
     const headlineBottom = headline.offsetTop + headline.offsetHeight * 40;
     const isHalfShown = showHeadlineAt > headline.offsetTop;
+    //Headline is still visible on the screen
     const isNotScrolledPast = window.scrollY < headlineBottom;
     if(isHalfShown && isNotScrolledPast) {
       headline.classList.add('headline-show');
@@ -108,9 +112,23 @@ function showHeadline(e) {
   });
 }
 
-window.addEventListener('scroll', debounce(showContent));
+window.addEventListener('scroll', showContent);
 
-window.addEventListener('scroll', debounce(showHeadline), {capture: true});
+window.addEventListener('scroll', showHeadline, {capture: true});
+
+window.addEventListener('scroll', stickyMobileMenu);
+
+window.addEventListener('scroll', stickyNav);
+
+toggleMenu.addEventListener('click', mobileMenuToggle);
+
+//Check size of screen on page load
+checkSize();
+//Check size of screen on resize of window
+$(window).resize(checkSize);
+
+
+
 
 
 
