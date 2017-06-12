@@ -451,6 +451,9 @@ a.logo {
   justify-content: space-between;
 }
 .photoFrame {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   margin: 0 auto;
   height: 400px; width: 100%; max-width: 900px;
   white-space: nowrap;
@@ -462,27 +465,6 @@ a.logo {
   transition: 1s;
   height: 100%;
   width: 100%;
-}
-.slide {
-  height: 100%; width: 100%;
-  margin: 0 -4px 0 0;
-  display: inline-block;
-}
-.picture1 {
-	background: url("../img/0969.jpg") no-repeat center;
-  background-size: contain;
-}
-.picture2 {
-	background: url("../img/1027.jpg") no-repeat center;
-  background-size: contain;
-}
-.picture3 {
-	background: url("../img/1334.jpg") no-repeat center;
-  background-size: contain;
-}
-.picture4 {
-	background: url("../img/1436.jpg") no-repeat center;
-  background-size: contain;
 }
 .photoSelector {
   display: inline-flex;

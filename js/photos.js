@@ -1,18 +1,8 @@
 //Photography page script
 
-let slideNumber = document.querySelectorAll('.slide').length;
-let Carousel = function(frameSelector, sliderSelector, slidesSelector, leftArwBtn, rightArwBtn) {
-  //stores position on left
-  let leftPosition = 0;
-  let frame = document.querySelector(frameSelector);
-  let slides = document.querySelector(slidesSelector);
-  let leftArrowBtn = document.querySelector(leftArwBtn);
-  let rightArrowBtn = document.querySelector(rightArwBtn);
-  let slider = document.querySelector(sliderSelector);
-  let selectorCircle = document.querySelectorAll('.selector-circle');
-  let lastCircle = selectorCircle[selectorCircle.length - 1];
 
-  let photos = [
+let photos = [
+
     {
       "image": "../img/0969.jpg"
     },
@@ -26,10 +16,26 @@ let Carousel = function(frameSelector, sliderSelector, slidesSelector, leftArwBt
       "image": "../img/1436.jpg"
     }
   ]
+let photoLength = photos.length;
+let Carousel = function(frameSelector, leftArwBtn, rightArwBtn) {
+
+  let frame = document.querySelector(frameSelector);
+  let leftArrowBtn = document.querySelector(leftArwBtn);
+  let rightArrowBtn = document.querySelector(rightArwBtn);
+  let selectorCircle = document.querySelectorAll('.selector-circle');
+  let lastCircle = selectorCircle[selectorCircle.length - 1];
+  let randNum = (min, max) => {
+  return Math.floor(Math.random() * (max - min)) + min;
+  };
+  let randPhoto = randNum(1, photos.length);
+  let startPhoto = 0;
+  let photoIndex;
+
+
+
 
   //Add classes to photoFrame and slider divs
   frame.classList.add('photoFrame');
-  slider.classList.add('slider');
 
   //Add event listeners to the arrow buttons
   leftArrowBtn.addEventListener('click', function() {
@@ -40,8 +46,16 @@ let Carousel = function(frameSelector, sliderSelector, slidesSelector, leftArwBt
     carousel.next();
   });
   window.addEventListener('load', autoSlide);
-  //Function that moves the slides left or right depending on variable value
-  //Moves to the next slide if value is -1, moves to the previous is value is 1
+  window.addEventListener('load', function() {
+    frame.style.backgroundImage = "url('"+photos[startPhoto].image+"')";
+    console.log(startPhoto);
+  });
+
+  function getIndex() {
+    for(let i = 0; i < photos.length; i++) {
+      photoIndex = i;
+    }
+  }
 
   function clickableCircle() {
     for(let i = 0; i < selectorCircle.length; i++) {
@@ -85,45 +99,56 @@ let Carousel = function(frameSelector, sliderSelector, slidesSelector, leftArwBt
   }
 
   function moveSlide(value) {
-    leftPosition += value * 100;
-    slider.style.left = leftPosition + '%';
-    console.log(leftPosition);
+
 
   };
 
   return {
     //Function to move to the next slide
     next: function() {
-      if(leftPosition > (slideNumber -1) * -100) {
-        moveSlide(-1);
-        circleCycle(-1);
-      } else {
-        leftPosition = 0;
-        slider.style.left = leftPosition + '%';
-        circleCycle(-1);
-
+       if(startPhoto === 0)  {
+        let value =
+        frame.style.backgroundImage = "url('"+photos[startPhoto +1].image+"')";
+        startPhoto++;
+        console.log(startPhoto);
+       }
+        else if(startPhoto >= photoLength -1) {
+        startPhoto = 0;
+        console.log(startPhoto);
+        let value =
+        frame.style.backgroundImage = "url('"+photos[startPhoto].image+"')";
+        console.log(startPhoto);
+      }
+       else {
+        frame.style.backgroundImage = "url('"+photos[startPhoto +1].image+"')";
+        startPhoto++;
+        console.log(startPhoto);
       }
     },
     //Function to go to previous slide
     previous: function() {
-      if(leftPosition !== 0) {
-        moveSlide(1);
-        circleCycle(1);
-      } else {
-        leftPosition = (slideNumber -1) * -100;
-        slider.style.left = leftPosition + '%';
-        circleCycle(1);
-      }
+      if(startPhoto === 0) {
+        let value =
+        frame.style.backgroundImage = "url('"+photos[photoLength -1].image+"')";
+        startPhoto = photoLength -1;
+        console.log(startPhoto);
+    } else if(startPhoto > 0) {
+        startPhoto--;
+        let value =
+        frame.style.backgroundImage = "url('"+photos[startPhoto].image+"')";
+
+        console.log(startPhoto);
     }
 
-  };
+  }
 
+};
 };
 
 (function createCircle() {
   let selectorHTML = '';
   let photoSelector = document.getElementById('photoSelector');
-  for(let i = 0; i < slideNumber; i++) {
+  for(let i = 0; i < photoLength; i++) {
     selectorHTML += '<div class="selector-circle"></div>';
   }
   photoSelector.innerHTML = selectorHTML;
@@ -131,4 +156,4 @@ let Carousel = function(frameSelector, sliderSelector, slidesSelector, leftArwBt
 })();
 
   //Create new instance of Carousel
-  let carousel = new Carousel('#photoFrame', '#slider', '#slider .slide', '.arrowLeft', '.arrowRight');
+  let carousel = new Carousel('#photoFrame', '.arrowLeft', '.arrowRight');
