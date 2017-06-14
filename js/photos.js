@@ -24,12 +24,8 @@ let Carousel = function(frameSelector, leftArwBtn, rightArwBtn) {
   let rightArrowBtn = document.querySelector(rightArwBtn);
   let selectorCircle = document.querySelectorAll('.selector-circle');
   let lastCircle = selectorCircle[selectorCircle.length - 1];
-  let randNum = (min, max) => {
-  return Math.floor(Math.random() * (max - min)) + min;
-  };
-  let randPhoto = randNum(1, photos.length);
   let startPhoto = 0;
-  let photoIndex;
+
 
 
 
@@ -51,11 +47,6 @@ let Carousel = function(frameSelector, leftArwBtn, rightArwBtn) {
     console.log(startPhoto);
   });
 
-  function getIndex() {
-    for(let i = 0; i < photos.length; i++) {
-      photoIndex = i;
-    }
-  }
 
   function clickableCircle() {
     for(let i = 0; i < selectorCircle.length; i++) {
@@ -84,73 +75,87 @@ let Carousel = function(frameSelector, leftArwBtn, rightArwBtn) {
     clickableCircle();
   }
 
+  //This function adds active status to the photoselector circle that pertains to it's corrisponding photo and removes it from all others.
   function circleCycle(value) {
-    let active = leftPosition / -100;
-    let inactive = active + value;
-    if(leftPosition === 0) {
-      selectorCircle[0].classList.add('active');
-      selectorCircle[1].classList.remove('active');
-      lastCircle.classList.remove('active');
-  } else if(leftPosition !== 0) {
-      selectorCircle[0].classList.remove('active');
-      selectorCircle[active].classList.add('active');
-      selectorCircle[inactive].classList.remove('active');
+    //creates an array from the node list.
+    let circleArray = Array.prototype.slice.call(selectorCircle);
+    //the circle to receive active status.
+    let currentCircle = circleArray[value];
+    //loops through the array
+    for(let i = 0; i < circleArray.length; i++) {
+      //if the current index value is equal the the value of the startPhoto counter, add active status to current circle.
+      if(i === value) {
+        currentCircle.classList.add('active');
+      //for the rest of the array, remove the active status of each element.
+      } else {
+        circleArray[i].classList.remove('active');
+      }
     }
   }
 
-  function moveSlide(value) {
-
-
-  };
-
   return {
-    //Function to move to the next slide
+    //Function to move to the next photo in the photo carousel.
     next: function() {
        if(startPhoto === 0)  {
-        let value =
+        //if the the first photo in array is showing, the carousel moves to second photo.
+         let value =
         frame.style.backgroundImage = "url('"+photos[startPhoto +1].image+"')";
-        startPhoto++;
+        //sets counter to one
+         startPhoto++;
         console.log(startPhoto);
        }
+      //if last picture in array is showing, programs moves back to the first picture and restarts the counter.
         else if(startPhoto >= photoLength -1) {
         startPhoto = 0;
         console.log(startPhoto);
         let value =
         frame.style.backgroundImage = "url('"+photos[startPhoto].image+"')";
+
         console.log(startPhoto);
-      }
+      }//for all other pictures in array, function moves to the next image and adds one to the counter.
        else {
         frame.style.backgroundImage = "url('"+photos[startPhoto +1].image+"')";
         startPhoto++;
         console.log(startPhoto);
       }
+      //adds active status to circle selector that corresponds to currently visible photo.
+      circleCycle(startPhoto);
     },
-    //Function to go to previous slide
+    //Function to go to previous photo in the photo carousel.
     previous: function() {
+      //if the first photo in the array is currently visible.
       if(startPhoto === 0) {
+        //moves to the last photo to the array.
         let value =
         frame.style.backgroundImage = "url('"+photos[photoLength -1].image+"')";
+        //sets the counter to equal the index value of the last photo in the array.
         startPhoto = photoLength -1;
         console.log(startPhoto);
+        //for every photo that is not the first one
     } else if(startPhoto > 0) {
+        //subtract one from the counter and changes the photo to the previous one in the array.
         startPhoto--;
         let value =
         frame.style.backgroundImage = "url('"+photos[startPhoto].image+"')";
 
         console.log(startPhoto);
     }
-
+      //adds active status to circle selector that corresponds to currently visible photo.
+      circleCycle(startPhoto);
   }
 
 };
 };
-
+//Function adds the photo selector circles to the photography section.
 (function createCircle() {
+  //creates an empty HTML string.
   let selectorHTML = '';
   let photoSelector = document.getElementById('photoSelector');
+  //creates a circle for every photo in the photo array.
   for(let i = 0; i < photoLength; i++) {
     selectorHTML += '<div class="selector-circle"></div>';
   }
+  //adds all the circle DIVs to the web page.
   photoSelector.innerHTML = selectorHTML;
 
 })();
