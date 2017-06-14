@@ -24,6 +24,8 @@ let Carousel = function(frameSelector, leftArwBtn, rightArwBtn) {
   let rightArrowBtn = document.querySelector(rightArwBtn);
   let selectorCircle = document.querySelectorAll('.selector-circle');
   let lastCircle = selectorCircle[selectorCircle.length - 1];
+  //creates an array from the node list.
+  let circleArray = Array.prototype.slice.call(selectorCircle);
   let startPhoto = 0;
 
 
@@ -47,24 +49,20 @@ let Carousel = function(frameSelector, leftArwBtn, rightArwBtn) {
     console.log(startPhoto);
   });
 
-
+  //Function makes selector circles clickable and moves carousel to image associated with 'clicked' selector circle
   function clickableCircle() {
-    for(let i = 0; i < selectorCircle.length; i++) {
-      selectorCircle[i].addEventListener('click', function(e) {
-        let left = i * -100;
-        if(i === 0) {
-          slider.style.left = 0;
-          selectorCircle[i].classList.toggle('active');
-        } else if(i !== 0) {
-          moveSlide(-i);
-          selectorCircle[i].classList.toggle('active');
-        }
-//        moveSlide(i);
-        console.log(i);
-        console.log(left);
-
-
-
+    //loops through array of selector circles.
+    for(let i = 0; i < circleArray.length; i++) {
+      //adds clickability to each circle
+      circleArray[i].addEventListener('click', function(e) {
+        //gets the index value of the 'clicked' circle
+        let currentCircleIndex = circleArray.indexOf(this);
+        //changes the currently visible photo to associated image.
+        frame.style.backgroundImage = "url('"+photos[currentCircleIndex].image+"')";
+        //sets the startPhoto counter to the current index
+        startPhoto = currentCircleIndex;
+        //adds active status to the clicked on circle
+        circleCycle(currentCircleIndex);
       });
     }
   }
@@ -77,8 +75,6 @@ let Carousel = function(frameSelector, leftArwBtn, rightArwBtn) {
 
   //This function adds active status to the photoselector circle that pertains to it's corrisponding photo and removes it from all others.
   function circleCycle(value) {
-    //creates an array from the node list.
-    let circleArray = Array.prototype.slice.call(selectorCircle);
     //the circle to receive active status.
     let currentCircle = circleArray[value];
     //loops through the array
