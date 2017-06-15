@@ -69,7 +69,7 @@ body {
 }
 p {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-family: 'orbitron', sans-serif;
   padding: 1rem;
 }
@@ -368,15 +368,15 @@ a.logo {
 .site-one-photo {
   background: url('../img/alan_site.jpg') no-repeat top;
   background-size: 100% auto;
-  height: 200px; width: 100%;
-  padding-bottom: 10%;
+  width: 100%;
+  padding-bottom: 50%;
   position: relative;
 }
 .site-two-photo {
 	background: url('../img/herzog_site.jpg') no-repeat top;
   background-size: 100% auto;
-  height: 200px; width: 100%;
-  padding-bottom: 10%;
+  width: 100%;
+  padding-bottom: 50%;
   position: relative;
 }
 .site-one-info,
@@ -529,15 +529,7 @@ iframe {
 }
 
 
-.twitter {
-  position: relative;
-  margin: 3%;
-  padding-bottom: 8%;
-  width: 30px;
-  height: 5%;
-  background: url('../img/social/03-twitter.svg') center no-repeat;
-  background-size: contain;
-}
+
 
 .twitter a {
 	position: absolute;
@@ -596,10 +588,19 @@ iframe {
   text-decoration: none;
   opacity: 0;
 }
+.twitter {
+  position: relative;
+  margin: 3%;
+  padding-bottom: 2rem;
+  width: 30px;
+  height: 5%;
+  background: url('../img/social/03-twitter.svg') center no-repeat;
+  background-size: contain;
+}
 .insta {
   position: relative;
   margin: 3%;
-  padding-bottom: 8%;
+  padding-bottom: 2rem;
   width: 30px;
   height: 0;
   background: url('../img/social/38-instagram.svg') center no-repeat;
@@ -607,7 +608,7 @@ iframe {
 }
 .linkdin {
   margin: 3%;
-  padding-bottom: 8%;
+  padding-bottom: 2rem;
   width: 30px;
   height: 0;
   background: url('../img/social/11-linkedin.svg') center no-repeat;
@@ -615,7 +616,7 @@ iframe {
 }
 .github {
   margin: 3%;
-  padding-bottom: 8%;
+  padding-bottom: 2rem;
   width: 30px;
   height: 0;
   background: url('../img/41-github.svg') center no-repeat;
@@ -651,7 +652,7 @@ iframe {
 @media screen and ( min-width: 768px ) {
 
   .site-one-photo, .site-two-photo {
-	 height: 400px;
+	 /*height: 400px;*/
 
 }
 
@@ -727,11 +728,13 @@ iframe {
   }
   .site-one-photo {
     float: left;
+    padding-bottom: 0;
     height: 200px; width: 30%;
 }
   .site-two-photo {
     float: right;
     height: 200px; width: 30%;
+    padding-bottom: 0;
 }
   .music-info  {
     font-size: 1.3rem;
