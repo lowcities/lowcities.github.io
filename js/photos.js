@@ -1,22 +1,20 @@
 //Photography page script
-
-
 let photos = [
 
     {
-      "image": "../img/0969.jpg"
+      "image": "./img/0969.jpg"
     },
     {
-      "image": "../img/1027.jpg"
+      "image": "./img/1027.jpg"
     },
     {
-      "image": "../img/1334.jpg"
+      "image": "./img/1334.jpg"
     },
     {
-      "image": "../img/1436.jpg"
+      "image": "./img/1436.jpg"
     },
     {
-      "image": "../img/mixmasterg.jpg"
+      "image": "./img/mixmasterg.jpg"
     }
   ]
 let photoLength = photos.length;

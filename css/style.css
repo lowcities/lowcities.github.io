@@ -437,7 +437,6 @@ a.logo {
   background-size: contain;
   margin: 0 auto;
   width: 100%; max-width: 900px;
-  max-height: 500px;
   padding-bottom: 90%;
   z-index: 1;
 }
@@ -456,19 +455,22 @@ a.logo {
   height: 40px;
 }
 .selector-circle {
+  background: rgba(55, 55, 55, .5);
   -webkit-box-shadow: 3px 5px 3px black;
           box-shadow: 3px 5px 3px black;
   display: inline-block;
   border-radius: 50%;
-  width: 15px;
-  padding: .8rem;
-  margin: .5rem;
+  width: 15px; height: 15px;
+  padding: .5rem;
+  margin: .9rem;
 
 }
 .active {
   background: rgba(255, 255, 255, .5);
   -webkit-box-shadow: 0 0 20px white, 3px 5px 3px black;
-          box-shadow: 0 0 20px white, 3px 5px 3px black;
+  box-shadow: 0 0 20px white, 3px 5px 3px black;
+  width: 25px; height: 25px;
+  margin: .7rem;
 }
 
 
