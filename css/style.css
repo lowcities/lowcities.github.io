@@ -135,6 +135,7 @@ h1{
   -webkit-box-shadow: 0 1px 1px #777;
           box-shadow: 0 1px 1px #777;
   margin: 1% 2% 5% 2%;
+  overflow: hidden;  
   -webkit-transform: translateX(-100%) scale(0.25);
   transform: translateX(-100%) scale(0.25);
   -webkit-transition: all .5s;
@@ -191,7 +192,6 @@ h2 {
   visibility: hidden;
 }
 .nav_menu {
-
   border-top: 1px solid black;
   border-right: 1px solid black;
   position: relative;
@@ -204,9 +204,6 @@ h2 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.nav_menu:hover {
-
 }
 .button  {
   padding-top: 6px;
@@ -273,7 +270,6 @@ a.logo {
  }
 .logo img {
   width: 100%;
-  height: 0 auto;
 }
 .img-shadow {
   -webkit-box-shadow: 1px 1px 5px 1px black;
@@ -392,11 +388,13 @@ a.logo {
 
 /*Photo Page
 =============================================*/
-
+.photoContainer .headline {
+  word-break: break-all;
+}
 .arrowLeft,
 .arrowRight{
   width: 20%;
-  margin: 0 50px;
+  margin: 0 5%;
   max-width: 90px;
   z-index: 1;
 }
@@ -416,7 +414,6 @@ a.logo {
 }
 .photoBox {
   width: 100%; max-width: 900px;
-  height: auto;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -436,9 +433,20 @@ a.logo {
   background-position: center;
   background-size: contain;
   margin: 0 auto;
-  width: 100%; max-width: 900px;
+  width: 100%; 
+  max-width: 900px;
   padding-bottom: 90%;
-  z-index: 1;
+  position: relative;
+}
+@-moz-document url-prefix() {
+.arrowLeft,
+.arrowRight{
+  margin-top: 40px;
+}
+  .photoFrame {
+    height: 300px;
+    padding-bottom: 100%;
+  }
 }
 .photoSelector {
   display: -webkit-inline-box;
@@ -711,15 +719,12 @@ iframe {
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
     text-align: center;
-    opacity: 9;
+    opacity: 1;
     padding: 0;
 }
   .sticky-nav .navLogo {
     max-width: 150px;
   }
-  .site-one-info {
-
-}
   .site-one-photo {
     float: left;
     height: 200px; width: 30%;
