@@ -32,15 +32,7 @@ a {
   cursor: pointer;
   text-decoration: none;
 }
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('../img/pattern2.png') repeat top left;
-  opacity: .4;
-}
+
 header {
   position: relative;
   display: -webkit-box;
@@ -125,26 +117,34 @@ h1{
   font-family: 'hacked', sans-serif;
 	text-align: center;
   color: #999;
-  font-size: 250%;
 }
 .headline {
-  background-color: #111;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#444), to(#222));
-  background-image: linear-gradient(#444, #222);
-  border-radius: 6px;
-  -webkit-box-shadow: 0 1px 1px #777;
-          box-shadow: 0 1px 1px #777;
-  margin: 1% 2% 5% 2%;
-  overflow: hidden;  
-  -webkit-transform: translateX(-100%) scale(0.25);
+  font-size: 3rem;
+  margin: 1% 2% 2% 2%;
+  background-color: #2d2d2d;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: rgba(0, 0, 0, 0.6);
+    text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
   transform: translateX(-100%) scale(0.25);
-  -webkit-transition: all .5s;
+    -webkit-transform: translateX(-100%) scale(0.25);
+    -webkit-transition: all .5s;
   transition: all .5s;
 }
 .headline-show{
   -webkit-transform: translateX(0%) scale(1);
   transform: translateX(0%) scale(1);
 
+}
+.border {
+  border: 10px solid transparent;
+    border-image: url(../img/menu-border.svg) 45 0 0 0;
+      -o-border-image: url(../img/menu-border.svg) 45 0 0 0;
+    border-image-repeat: repeat; 
+    margin: 0 auto;
+  position: relative;  
+  width: 100%;   
 }
 h2 {
   font-family: 'Orbitron', sans-serif;
@@ -206,8 +206,10 @@ h2 {
           align-items: center;
 }
 .button  {
-  padding-top: 6px;
-  width: 20px;
+  display: inline-block;
+  background: url('../img/box.png') center no-repeat;
+  margin-top: 6px;
+  width: 20px; height: 20px;
 }
 .nav {
   float: right;
@@ -239,7 +241,6 @@ h2 {
 }
 .sticky-mobile {
   background: rgba(10,6,6,.7);
-/*  box-shadow: 1px 1px 1px 3px #999;*/
   color: #999;
   position: fixed;
   -o-border-image: url(../img/menu-border.svg) 45 0 0 0;
@@ -305,58 +306,6 @@ a.logo {
   animation: shift 1s 3 alternate-reverse;
 }
 
-@-webkit-keyframes shift {
-  0% {
-    background: url('../img/distort.jpg')no-repeat 50%;
-    background-size: cover;
-  }
-  10% {
-    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
-    background-size: cover;
-  }
-  20% { left: 5px; }
-  25% { left: 0; }
-  30% {
-    left: 5px;
-    background: url('../img/distort.jpg')no-repeat 50%;
-    background-size: cover;
-  }
-  35% { left: 0; }
-  40% {
-    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
-    background-size: cover;
-  }
-  45% {left: 5px;}
-  50% {left: 0;}
-  100% {
-  }
-}
-@keyframes shift {
-  0% {
-    background: url('../img/distort.jpg')no-repeat 50%;
-    background-size: cover;
-  }
-  10% {
-    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
-    background-size: cover;
-  }
-  20% { left: 5px; }
-  25% { left: 0; }
-  30% {
-    left: 5px;
-    background: url('../img/distort.jpg')no-repeat 50%;
-    background-size: cover;
-  }
-  35% { left: 0; }
-  40% {
-    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
-    background-size: cover;
-  }
-  45% {left: 5px;}
-  50% {left: 0;}
-  100% {
-  }
-}
 
 
 /*Portfolio section
@@ -388,11 +337,10 @@ a.logo {
 
 /*Photo Page
 =============================================*/
-.photoContainer .headline {
-  word-break: break-all;
-}
+
 .arrowLeft,
 .arrowRight{
+  cursor: pointer;
   width: 20%;
   margin: 0 5%;
   max-width: 90px;
@@ -435,15 +383,16 @@ a.logo {
   margin: 0 auto;
   width: 100%; 
   max-width: 900px;
-  padding-bottom: 90%;
+  padding-bottom: 75%;
   position: relative;
 }
+/*settings for Firefox browsers*/
 @-moz-document url-prefix() {
 .arrowLeft,
-.arrowRight{
+.arrowRight {
   margin-top: 40px;
 }
-  .photoFrame {
+.photoFrame {
     height: 300px;
     padding-bottom: 100%;
   }
@@ -466,13 +415,16 @@ a.logo {
   background: rgba(55, 55, 55, .5);
   -webkit-box-shadow: 3px 5px 3px black;
           box-shadow: 3px 5px 3px black;
+  cursor: pointer; 
   display: inline-block;
   border-radius: 50%;
   width: 15px; height: 15px;
   padding: .5rem;
   margin: .9rem;
+  transition: all 100 ease;
 
 }
+.selector-circle:hover,
 .active {
   background: rgba(255, 255, 255, .5);
   -webkit-box-shadow: 0 0 20px white, 3px 5px 3px black;
@@ -527,111 +479,120 @@ iframe {
       -ms-flex-align: center;
           align-items: center;
 }
-
-
-
-
-.twitter a {
-	position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
+.social a {
+  background-color: dimgray;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  margin: .5rem;
   text-decoration: none;
-  opacity: 0;
+  transition: all 300ms ease-in;
+  z-index: 1;
 }
-
-.insta a {
-	position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  text-decoration: none;
-  opacity: 0;
-}
-
-.twitter a {
-	position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  text-decoration: none;
-  opacity: 0;
-}
-.linkdin a {
-	position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  text-decoration: none;
-  opacity: 0;
-}
-.github a {
-	position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  text-decoration: none;
-  opacity: 0;
+.social a:hover {
+  -webkit-box-shadow: inset 35px 35px 0px white;
+  box-shadow: inset 35px 35px 0px white;
 }
 .twitter {
-  position: relative;
-  margin: 3%;
-  padding-bottom: 2rem;
-  width: 30px;
-  height: 5%;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  padding-top: 42px;
   background: url('../img/social/03-twitter.svg') center no-repeat;
+  background-size: 100%; 
   background-size: contain;
 }
 .insta {
-  position: relative;
-  margin: 3%;
-  padding-bottom: 2rem;
-  width: 30px;
-  height: 0;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  padding-top: 42px;
   background: url('../img/social/38-instagram.svg') center no-repeat;
   background-size: contain;
 }
 .linkdin {
-  margin: 3%;
-  padding-bottom: 2rem;
-  width: 30px;
-  height: 0;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  padding-top: 42px;
   background: url('../img/social/11-linkedin.svg') center no-repeat;
   background-size: contain;
 }
 .github {
-  margin: 3%;
-  padding-bottom: 2rem;
-  width: 30px;
-  height: 0;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  padding-top: 42px;
   background: url('../img/41-github.svg') center no-repeat;
   background-size: contain;
 }
-
-
 
 /***********************************************
             Animations
 ***********************************************/
 
 .overlay {
-  -webkit-animation: pulse 2s infinite alternate;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../img/pattern2.png') repeat top left;
+  opacity: .4;
   animation: pulse 2s infinite alternate;
+    -webkit-animation: pulse 2s infinite alternate;
+}
+@-webkit-keyframes shift {
+  0% {
+    background: url('../img/distort.jpg')no-repeat 50%;
+    background-size: cover;
+  }
+  10% {
+    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
+    background-size: cover;
+  }
+  20% { left: 5px; }
+  25% { left: 0; }
+  30% {
+    left: 5px;
+    background: url('../img/distort.jpg')no-repeat 50%;
+    background-size: cover;
+  }
+  35% { left: 0; }
+  40% {
+    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
+    background-size: cover;
+  }
+  45% {left: 5px;}
+  50% {left: 0;}
+  100% {
+  }
+}
+@keyframes shift {
+  0% {
+    background: url('../img/distort.jpg')no-repeat 50%;
+    background-size: cover;
+  }
+  10% {
+    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
+    background-size: cover;
+  }
+  20% { left: 5px; }
+  25% { left: 0; }
+  30% {
+    left: 5px;
+    background: url('../img/distort.jpg')no-repeat 50%;
+    background-size: cover;
+  }
+  35% { left: 0; }
+  40% {
+    background: url('../img/Attachment-1.jpeg')no-repeat 50%;
+    background-size: cover;
+  }
+  45% {left: 5px;}
+  50% {left: 0;}
+  100% {
+  }
 }
 
 @-webkit-keyframes pulse {

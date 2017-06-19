@@ -43,12 +43,21 @@ let Carousel = function(frameSelector, leftArwBtn, rightArwBtn) {
 
   rightArrowBtn.addEventListener('click', function() {
     carousel.next();
+    
   });
   window.addEventListener('load', autoSlide);
   window.addEventListener('load', function() {
     frame.style.backgroundImage = "url('"+photos[startPhoto].image+"')";
     console.log(startPhoto);
   });
+
+  function fadePhoto(pic) {
+    $(frame).fadeOut(200, function() { 
+      let photo = frame.style.backgroundImage = "url('"+photos[pic].image+"')";
+      $(this).fadeIn(200);
+    });
+
+  }
 
   //Function makes selector circles clickable and moves carousel to image associated with 'clicked' selector circle
   function clickableCircle() {
@@ -58,11 +67,11 @@ let Carousel = function(frameSelector, leftArwBtn, rightArwBtn) {
       circleArray[i].addEventListener('click', function(e) {
         //gets the index value of the 'clicked' circle
         let currentCircleIndex = circleArray.indexOf(this);
-        //changes the currently visible photo to associated image.
-        frame.style.backgroundImage = "url('"+photos[currentCircleIndex].image+"')";
-        //sets the startPhoto counter to the current index
+        //changes the currently visible photo to match index of 'clicked' circle.
+        fadePhoto(currentCircleIndex);
+         //sets the startPhoto counter to the current index.
         startPhoto = currentCircleIndex;
-        //adds active status to the clicked on circle
+        //adds active status to the 'clicked' circle.
         circleCycle(currentCircleIndex);
       });
     }
@@ -95,8 +104,6 @@ let Carousel = function(frameSelector, leftArwBtn, rightArwBtn) {
     next: function() {
        if(startPhoto === 0)  {
         //if the the first photo in array is showing, the carousel moves to second photo.
-         let value =
-        frame.style.backgroundImage = "url('"+photos[startPhoto +1].image+"')";
         //sets counter to one
          startPhoto++;
         console.log(startPhoto);
@@ -105,16 +112,13 @@ let Carousel = function(frameSelector, leftArwBtn, rightArwBtn) {
         else if(startPhoto >= photoLength -1) {
         startPhoto = 0;
         console.log(startPhoto);
-        let value =
-        frame.style.backgroundImage = "url('"+photos[startPhoto].image+"')";
-
-        console.log(startPhoto);
       }//for all other pictures in array, function moves to the next image and adds one to the counter.
        else {
-        frame.style.backgroundImage = "url('"+photos[startPhoto +1].image+"')";
         startPhoto++;
         console.log(startPhoto);
       }
+      //displays the appropriate photo on page.
+      fadePhoto(startPhoto);
       //adds active status to circle selector that corresponds to currently visible photo.
       circleCycle(startPhoto);
     },
@@ -122,9 +126,7 @@ let Carousel = function(frameSelector, leftArwBtn, rightArwBtn) {
     previous: function() {
       //if the first photo in the array is currently visible.
       if(startPhoto === 0) {
-        //moves to the last photo to the array.
-        let value =
-        frame.style.backgroundImage = "url('"+photos[photoLength -1].image+"')";
+        //moves to the last photo to the array and
         //sets the counter to equal the index value of the last photo in the array.
         startPhoto = photoLength -1;
         console.log(startPhoto);
@@ -132,11 +134,10 @@ let Carousel = function(frameSelector, leftArwBtn, rightArwBtn) {
     } else if(startPhoto > 0) {
         //subtract one from the counter and changes the photo to the previous one in the array.
         startPhoto--;
-        let value =
-        frame.style.backgroundImage = "url('"+photos[startPhoto].image+"')";
-
         console.log(startPhoto);
     }
+      //displays the appropriate photo on page.
+      fadePhoto(startPhoto);
       //adds active status to circle selector that corresponds to currently visible photo.
       circleCycle(startPhoto);
   }
