@@ -48,6 +48,7 @@ header {
 }
 
 body {
+  background-color: grey;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,7 +58,7 @@ body {
           flex-direction: column;
   margin: 0 auto;
   min-height: 100vh;
-  background: grey;
+  
 }
 p {
   text-align: center;
@@ -94,7 +95,7 @@ p {
 .container {
   height: auto;
   margin-bottom: 10%;
-  position: relative;
+
   width: 100%;
 
 }
@@ -280,17 +281,41 @@ a.logo {
 /*About section
 =============================================*/
 
-.about {
-  display: inline-block;
+.background,
+.about-background {
+  background: url('../img/Attachment-1.jpeg') center no-repeat; 
+  background-size: 1080px auto;
+}
+.background {
+ 
+}
+.about-background {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  padding: 10px;
+  z-index: 99;
+  -webkit-filter: blur(10px);
+    filter: url('/media/blur.svg#blur');
+    filter: blur(10px);  
+}
+.about-container {
+  position: relative;
 }
 .intro {
+  color: #fefefe;
   position:relative;
-
+  margin: 0 auto;
+  width: 50%;
   padding: 10px;
-  background-color: dimgrey;
+  background:  rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.75);
+  z-index: 100;
 }
 
-.biopic {  /*<-------------------Bio picture style and animation*/
+/*.biopic {  /*<-------------------Bio picture style and animation*/
   position: relative;
   z-index: 1;
   float: left;
@@ -304,7 +329,7 @@ a.logo {
   background-size: 100% auto;
   -webkit-animation: shift 1s 3 alternate-reverse;
   animation: shift 1s 3 alternate-reverse;
-}
+}*/
 
 
 
