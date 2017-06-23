@@ -8,6 +8,9 @@ const topOfNav = menuBar.offsetTop;
 const topOfMobile = toggleMenu.offsetTop;
 const navLogo = document.querySelector('.navLogo');
 const headers = document.querySelectorAll('.headline');
+const introContainer = document.querySelector('.intro');
+const width = introContainer.innerWidth;
+const bluredImage = document.querySelector('.about-background');
 
 //Function to show or hide menu bar depending on screen size
 function checkSize() {
@@ -61,20 +64,7 @@ function stickyMobileMenu(e) {
   }
 }
 
-function debounce(func, wait = 20, immediate = true) {
-      var timeout;
-      return function() {
-        var context = this, args = arguments;
-        var later = function() {
-          timeout = null;
-          if (!immediate) func.apply(context, args);
-        };
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-      };
-    }
+
 
 //Show or hide content based on window position
 function showContent(e) {
@@ -112,6 +102,12 @@ function showHeadline(e) {
   });
 }
 
+function imageClip() {
+  let coords = introContainer.getBoundingClientRect();
+  $(bluredImage).attr("style", `clip-path: inset(0 0 0 ${Math.floor(coords.left)}px)`);
+  console.log(coords.top);
+}
+
 window.addEventListener('scroll', showContent);
 
 window.addEventListener('scroll', showHeadline, {capture: true});
@@ -122,10 +118,14 @@ window.addEventListener('scroll', stickyNav);
 
 toggleMenu.addEventListener('click', mobileMenuToggle);
 
+window.addEventListener('load', imageClip);
+
 //Check size of screen on page load
 checkSize();
 //Check size of screen on resize of window
 $(window).resize(checkSize);
+$(window).resize(imageClip);
+
 
 
 

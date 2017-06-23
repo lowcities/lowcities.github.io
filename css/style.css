@@ -45,6 +45,7 @@ header {
   width: 100%;
   background: url('../img/wall.jpg') repeat;
   background-size: cover;
+  z-index: 81;
 }
 
 body {
@@ -88,16 +89,15 @@ p {
           flex: 1;
 }
 .content {
-  margin-top: 20px;
   width: 100%;
   height: auto;
 }
 .container {
   height: auto;
   margin-bottom: 10%;
-
   width: 100%;
-
+  z-index: 80;
+  position: relative;
 }
 .fade-container {
 	opacity: 0;
@@ -185,7 +185,7 @@ h2 {
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
   visibility: visible;
-  z-index: 9;
+  z-index: 99;
 }
 .menu-hide{
   max-width: 0;
@@ -196,7 +196,7 @@ h2 {
   border-top: 1px solid black;
   border-right: 1px solid black;
   position: relative;
-  z-index: 9;
+  z-index: 99;
   padding: .2rem 0 0 0.7rem;
   width: 125px; height: 40px;
   font-size: .2em;
@@ -219,7 +219,7 @@ h2 {
   padding-top: 9px;
   padding-left: 3px;
   width: 90px;
-  z-index: 4;
+  z-index: 99;
 }
 .navItem, .navLogo {
   -webkit-box-shadow: inset 0 1px 0 #111, 0 2px 0 #666;
@@ -283,55 +283,44 @@ a.logo {
 
 .background,
 .about-background {
-  background: url('../img/Attachment-1.jpeg') center no-repeat; 
-  background-size: 1080px auto;
+  background: url('../img/Attachment-1.jpeg')no-repeat;
+  background-size: cover;
+  width: 100%;
+  background-position: 60%;
+  -webkit-animation: shift 1s 3 alternate-reverse;
+    animation: shift 1s 3 alternate-reverse;  
 }
 .background {
- 
+  z-index: 2;
 }
 .about-background {
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  width: 50%;
-  padding: 10px;
-  z-index: 99;
+  z-index: 97;
   -webkit-filter: blur(10px);
     filter: url('/media/blur.svg#blur');
     filter: blur(10px);  
+  
 }
 .about-container {
   position: relative;
 }
 .intro {
-  color: #fefefe;
+  
+  color: whitesmoke;
   position:relative;
-  margin: 0 auto;
-  width: 50%;
+  margin: 0 0 0 30%;
   padding: 10px;
+  width: 70%;
   background:  rgb(34,34,34); /* for IE */
   background: rgba(34,34,34,0.75);
-  z-index: 100;
+  z-index: 98;
+  animation: opaque 5s ease;
+  
 }
-
-/*.biopic {  /*<-------------------Bio picture style and animation*/
-  position: relative;
-  z-index: 1;
-  float: left;
-  margin-right: 10px;
-  padding-top: 17.5%;
-  max-width: 250px;
-  width: 50%;
-  height: 100px;
-  background: url('../img/Attachment-1.jpeg')no-repeat 50% 0;
-  background-position: center;
-  background-size: 100% auto;
-  -webkit-animation: shift 1s 3 alternate-reverse;
-  animation: shift 1s 3 alternate-reverse;
-}*/
-
-
 
 /*Portfolio section
 =============================================*/
@@ -369,7 +358,7 @@ a.logo {
   width: 20%;
   margin: 0 5%;
   max-width: 90px;
-  z-index: 1;
+  z-index: 99;
 }
 .photo-flex {
 	display: -webkit-box;
@@ -566,6 +555,18 @@ iframe {
   opacity: .4;
   animation: pulse 2s infinite alternate;
     -webkit-animation: pulse 2s infinite alternate;
+  z-index: 80;  
+}
+@keyframes opaque {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: .1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @-webkit-keyframes shift {
   0% {
@@ -637,10 +638,10 @@ iframe {
 
 @media screen and ( min-width: 768px ) {
 
-  .site-one-photo, .site-two-photo {
-	 /*height: 400px;*/
-
-}
+ .intro {
+    width: 40%;
+    margin-left: 60%;
+  }
 
 }
 @media screen and ( min-width: 56rem ) {
@@ -712,6 +713,7 @@ iframe {
   .sticky-nav .navLogo {
     max-width: 150px;
   }
+  
   .site-one-photo {
     float: left;
     padding-bottom: 0;
