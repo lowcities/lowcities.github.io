@@ -515,14 +515,15 @@ a.logo,
   width: 25px; height: 25px;
   padding: .5rem;
   margin: .9rem;
-  transition: all 1000 ease;
+  transition: all 5000 ease;
 
 }
 .selector-circle:hover,
 .active {
-  transform: translateY(-25%);
+  transform: translateY(-38%);
   -webkit-box-shadow: 0 2px 1px rgba(255,255,255,0.4), inset 0 5px 1px rgba(0,0,0,0.1);
-          box-shadow:  .5px 9px 0 rgba(5,5,5,0.5), inset 0 -5px 0 rgba(0,0,0,0.3), inset 0 2px 5px rgba(255,255,255,0.4) ;
+          box-shadow: -5px 13.5px 8px -4px rgba(0,0,0,.2),  .5px 9px 0 rgba(102,102,102,1),   inset 0 -5px 0 rgba(0,0,0,0.3), 
+          inset 0 2px 5px rgba(255,255,255,0.4), 0.5px 12px 5px rgba(0,0,0,1);
           
 }
 
