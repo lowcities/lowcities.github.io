@@ -9,17 +9,23 @@ const topOfMobile = toggleMenu.offsetTop;
 const navLogo = document.querySelector('.navLogo');
 const headers = document.querySelectorAll('.headline');
 const introContainer = document.querySelector('.intro');
-const width = introContainer.innerWidth;
 const bluredImage = document.querySelector('.about-background');
+const banner = document.querySelector('.logo');
+const mobileLogo = document.querySelector('.mobile-logo');
+const heder = document.querySelector('header');
 
 //Function to show or hide menu bar depending on screen size
 function checkSize() {
-  if(window.innerWidth <= 898) {
+  if(window.innerWidth <= 768) {
     menuBar.classList.add('menu-hide');
+    banner.style.display = 'none';
+    mobileLogo.style.display = 'inline-block';
     menuBar.classList.add('sticky-mobile');
     menuButton.innerHTML = 'MENU';
 }
   else {
+    banner.style.display = 'block';
+    mobileLogo.style.display = 'none';
     menuBar.classList.remove('menu-hide');
     menuBar.classList.remove('sticky-mobile');
     }
@@ -46,16 +52,17 @@ function mobileMenuToggle(e) {
 
 //creates a sticky nav bar when window is scrolled to the top of nav bar.
 function stickyNav(e) {
-  if(window.innerWidth >= 898 && window.scrollY >= topOfNav) {
+  if(window.innerWidth >= 768 && window.scrollY >= heder.offsetHeight) {
     menuBar.classList.add('sticky-nav');
-  } else {
+  } else  {
     menuBar.classList.remove('sticky-nav');
   }
+  console.log(window.scrollY, heder.offsetHeight);
 }
 
 //Creates a sticky mobile menu when window is scrolled to top of mobile menu button
-function stickyMobileMenu(e) {
-  if(window.innerWidth <= 898 && window.scrollY >= topOfMobile) {
+function stickyMobileMenu() {
+  if(window.innerWidth <= 768 && window.scrollY >= menuButton.offsetHeight) {
     toggleMenu.classList.add('sticky-nav-button');
 //    menuBar.classList.add('sticky-mobile');
   }
