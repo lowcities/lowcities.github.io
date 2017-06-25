@@ -15,6 +15,9 @@ let photos = [
     },
     {
       "image": "./img/mixmasterg.jpg"
+    },
+    {
+      "image": "./img/city.jpg"
     }
   ]
 let photoLength = photos.length;

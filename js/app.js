@@ -21,7 +21,6 @@ function checkSize() {
     banner.style.display = 'none';
     mobileLogo.style.display = 'inline-block';
     menuBar.classList.add('sticky-mobile');
-    menuButton.innerHTML = 'MENU';
 }
   else {
     banner.style.display = 'block';
@@ -41,11 +40,11 @@ link.forEach(function(item) {
 function mobileMenuToggle(e) {
   if (menuBar.classList.contains('menu-hide')) {
       menuBar.classList.remove('menu-hide');
-      menuButton.innerHTML = 'CLOSE';
+      
   }
   else {
       menuBar.classList.add('menu-hide');
-      menuButton.innerHTML = 'MENU';
+      
       }
 }
 
