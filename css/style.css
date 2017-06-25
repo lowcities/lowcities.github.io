@@ -3,12 +3,7 @@
 /**********************************************************
 FONTS
 **********************************************************/
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: 'PFT';
-  src: url('PFT/PFTempestaFiveExtended.eot?#iefix') format('embedded-opentype'),  url('PFT/PFTempestaFiveExtended.woff') format('woff'), url('PFT/PFTempestaFiveExtended.ttf')  format('truetype'), url('PFT/PFTempestaFiveExtended.svg#PFTempestaFiveExtended') format('svg');
-}
+
 @font-face {
     font-weight: normal;
     font-style: normal;
