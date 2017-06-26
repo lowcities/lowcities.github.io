@@ -110,7 +110,8 @@ function showHeadline(e) {
 
 function imageClip() {
   let coords = introContainer.getBoundingClientRect();
-  $(bluredImage).attr("style", `clip-path: inset(0 0 0 ${Math.floor(coords.left)}px)`);
+  $(bluredImage).attr("style", `clip-path: inset(0 0 0 ${Math.floor(coords.left)}px);
+  -webkit-clip-path: inset(0 0 0 ${Math.floor(coords.left)}px);`);
   console.log(coords.top);
 }
 
