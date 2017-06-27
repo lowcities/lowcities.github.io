@@ -1,5 +1,5 @@
 "use strict";
-const menuButton = document.querySelector('.nav');
+const mobileHead = document.querySelector('.mobile-header');
 const toggleMenu = document.querySelector('.nav_menu');
 const menuBar = document.getElementById('menu');
 const fadeContainers = document.querySelectorAll('.fade-container');
@@ -39,10 +39,12 @@ link.forEach(function(item) {
 //function opens or closes nav menu in mobile view
 function mobileMenuToggle(e) {
   if (menuBar.classList.contains('menu-hide')) {
+      toggleMenu.classList.add('open');
       menuBar.classList.remove('menu-hide');
       
   }
   else {
+      toggleMenu.classList.remove('open');
       menuBar.classList.add('menu-hide');
       
       }
@@ -61,7 +63,7 @@ function stickyNav(e) {
 
 //Creates a sticky mobile menu when window is scrolled to top of mobile menu button
 function stickyMobileMenu() {
-  if(window.innerWidth <= 768 && window.scrollY >= menuButton.offsetHeight) {
+  if(window.innerWidth <= 768 && window.scrollY >= mobileHead.offsetHeight) {
     toggleMenu.classList.add('sticky-nav-button');
 //    menuBar.classList.add('sticky-mobile');
   }
