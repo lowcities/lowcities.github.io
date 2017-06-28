@@ -112,10 +112,13 @@ function showHeadline(e) {
 
 function imageClip() {
   let coords = introContainer.getBoundingClientRect();
-  $(bluredImage).attr("style", `clip-path: inset(0 0 0 ${Math.floor(coords.left)}px);
-  -webkit-clip-path: inset(0 0 0 ${Math.floor(coords.left)}px);`);
-  console.log(coords.top);
+  $(bluredImage).attr("style", `-webkit-clip-path: inset(0 0 0 ${Math.floor(coords.left)}px);
+  clip-path: inset(0 0 0 ${Math.floor(coords.left)}px);`);
 }
+
+window.addEventListener('load', checkSize);
+
+window.addEventListener('load', imageClip);
 
 window.addEventListener('scroll', showContent);
 
@@ -127,10 +130,6 @@ window.addEventListener('scroll', stickyNav);
 
 toggleMenu.addEventListener('click', mobileMenuToggle);
 
-window.addEventListener('load', imageClip);
-
-//Check size of screen on page load
-checkSize();
 //Check size of screen on resize of window
 $(window).resize(checkSize);
 $(window).resize(imageClip);
