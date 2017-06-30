@@ -637,10 +637,16 @@ iframe {
   top: 0px; left: 0px; right: 0px; bottom: 0px;
   opacity: 0;
   z-index: -100;
-  transform: scale(.1);
-  transition: all .75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-transform: scale(.1);
+    -moz-transform: scale(.1);
+    -o-transform: scale(.1);
+    transform: scale(.1);
+  -webkit-transition: all .75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -moz-transition: all .75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -o-transition: all .75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all .75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-.modal {
+.contact {
   position: relative;
   background: #666;
   -webkit-box-shadow: 0 2px 1px rgba(255,255,255,0.4), inset 0 5px 1px rgba(0,0,0,0.1);
@@ -650,17 +656,24 @@ iframe {
   padding: 0.75em 1.5em;
   width: auto;
   z-index: 79;
+  
 }
 .to-circle {
   width: 4em;
   color: transparent;
-  transition: color 0.2s 0s, background-color 0.3s ease-in-out, width 0.3s 0.2s;
+  -webkit-transition: color 0.2s 0s, background-color 0.3s ease-in-out, width 0.3s 0.2s;
+    -moz-transition: color 0.2s 0s, background-color 0.3s ease-in-out, width 0.3s 0.2s;
+    -o-transition: color 0.2s 0s, background-color 0.3s ease-in-out, width 0.3s 0.2s;
+    transition: color 0.2s 0s, background-color 0.3s ease-in-out, width 0.3s 0.2s;
 }
 
 .modal-active {
   opacity: 1;
-  transform: scale(1);
-  z-index: 83;
+  -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); 
+  z-index: 84;
 }
 
 /***********************************************

@@ -13,7 +13,7 @@ const bluredImage = document.querySelector('.about-background');
 const banner = document.querySelector('.logo');
 const mobileLogo = document.querySelector('.mobile-logo');
 const heder = document.querySelector('header');
-const modalEl = document.querySelector('.modal');
+const modalEl = document.querySelector('.contact');
 const modalButton = document.querySelector('.modal-button');
 const modOverlay = document.querySelector('.modal-overlay');
 
