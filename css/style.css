@@ -75,12 +75,9 @@ p {
           flex-direction: row;
   margin: 0;
   width: 100%;
-
   -webkit-box-align: start;
-
-      -ms-flex-align: start;
-
-          align-items: flex-start;
+    -ms-flex-align: start;
+      align-items: flex-start;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -93,7 +90,7 @@ p {
   height: auto;
   margin-bottom: 10%;
   width: 100%;
-  z-index: 80;
+  z-index: 79;
   position: relative;
 }
 .fade-container {
@@ -185,7 +182,7 @@ h2 {
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
   visibility: visible;
-  z-index: 99;
+  z-index: 80;
 }
 .menu-hide{
   max-width: 0;
@@ -263,8 +260,9 @@ h2 {
   color: #999;
   padding: 2px;
   text-align: center;
-  overflow: hidden;
+  
 }
+
 .navItem:hover {
   color: azure;
   -webkit-transition: 700ms;
@@ -275,6 +273,7 @@ h2 {
 }
 .navLogo {
 	display: none;
+  overflow: hidden;
 }
 .sticky-mobile {
   background: rgba(10,6,6,.7);
@@ -293,6 +292,7 @@ h2 {
   position: fixed;
   top: 0;
   width: 20%;
+  z-index: 80;
 }
 
 /*Header Styling
@@ -366,7 +366,7 @@ a.logo,
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  z-index: 98;
+  z-index: 77;
 
 }
 
@@ -384,7 +384,7 @@ a.logo,
     -moz-animation: pulse 2s infinite alternate;
     -o-animation: pulse 2s infinite alternate;
     animation: pulse 2s infinite alternate;
-  z-index: 80;  
+  z-index: 75;  
 }
 .img-shadow {
   -webkit-box-shadow: 1px 1px 5px 1px black;
@@ -593,6 +593,77 @@ iframe {
 }
 
 /***********************************************
+            Modal Section
+***********************************************/
+
+.modal-button {
+  position: relative;
+  background:  rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.35);
+  border: 1px solid transparent;
+  border-radius: .2em;
+  color: #999;
+  cursor: pointer;
+  display: block;
+  font-family: 'hacked', sans-serif;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+  transition: all 0.55s;
+}
+.modal-wrap {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.modal-close {
+  background:  rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.75);
+  background-position: center;
+  border-radius: 50%;
+  display: block;
+  color: #999;
+  cursor: pointer;
+  margin: 10% 0 0 80%;
+  text-align: center;
+  height: 25px; width: 25px; 
+  
+}
+.modal-overlay {
+  background: dimgray;
+  position: fixed;
+  top: 0px; left: 0px; right: 0px; bottom: 0px;
+  opacity: 0;
+  z-index: -100;
+  transform: scale(.1);
+  transition: all .75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.modal {
+  position: relative;
+  background: #666;
+  -webkit-box-shadow: 0 2px 1px rgba(255,255,255,0.4), inset 0 5px 1px rgba(0,0,0,0.1);
+          box-shadow: 0 2px 1px rgba(255,255,255,0.4), inset 0 5px 1px rgba(0,0,0,0.1);
+  display: block;
+  margin: 20px 20%;
+  padding: 0.75em 1.5em;
+  width: auto;
+  z-index: 79;
+}
+.to-circle {
+  width: 4em;
+  color: transparent;
+  transition: color 0.2s 0s, background-color 0.3s ease-in-out, width 0.3s 0.2s;
+}
+
+.modal-active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 83;
+}
+
+/***********************************************
             Social Media Icons
 ***********************************************/
 
@@ -624,7 +695,7 @@ iframe {
   margin: .5rem;
   text-decoration: none;
   transition: all 300ms ease-in;
-  z-index: 98;
+  z-index: 79;
 }
 .social a:hover {
   -webkit-box-shadow: inset 35px 35px 0px white;

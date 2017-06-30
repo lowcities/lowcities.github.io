@@ -13,6 +13,9 @@ const bluredImage = document.querySelector('.about-background');
 const banner = document.querySelector('.logo');
 const mobileLogo = document.querySelector('.mobile-logo');
 const heder = document.querySelector('header');
+const modalEl = document.querySelector('.modal');
+const modalButton = document.querySelector('.modal-button');
+const modOverlay = document.querySelector('.modal-overlay');
 
 //Function to show or hide menu bar depending on screen size
 function checkSize() {
@@ -21,6 +24,7 @@ function checkSize() {
     banner.style.display = 'none';
     mobileLogo.style.display = 'inline-block';
     menuBar.classList.add('sticky-mobile');
+    toggleMenu.classList.remove('open');
 }
   else {
     banner.style.display = 'block';
@@ -116,6 +120,26 @@ function imageClip() {
   clip-path: inset(0 0 0 ${Math.floor(coords.left)}px);`);
 }
 
+function modalReveal() {
+  console.log('test');
+  let modalClose = document.querySelector('.modal-close');
+  if(!modOverlay.classList.contains('modal-active')) {
+    modalButton.classList.add('to-circle');
+    modOverlay.classList.add('modal-active');
+    modalEl.style.zIndex = 83;
+    modalClose.addEventListener('click', function() {
+      modOverlay.classList.remove('modal-active');
+      modalButton.classList.remove('to-circle');
+      modalEl.style.zIndex = 79;
+    });
+  }
+  else {
+    modOverlay.classList.remove('modal-active');
+    modalButton.classList.remove('to-circle');
+    
+  }
+}
+
 window.addEventListener('load', checkSize);
 
 window.addEventListener('load', imageClip);
@@ -129,6 +153,8 @@ window.addEventListener('scroll', stickyMobileMenu);
 window.addEventListener('scroll', stickyNav);
 
 toggleMenu.addEventListener('click', mobileMenuToggle);
+
+modalButton.addEventListener('click', modalReveal);
 
 //Check size of screen on resize of window
 $(window).resize(checkSize);
