@@ -23,6 +23,7 @@
         </div>
     </div>
       <div class="mobile-header">
+        <div class="city-background mobile-city" style="width: 100%; padding-right: 0;"></div>
         <div class="nav_menu">
           <span></span>
           <span></span>
@@ -53,7 +54,7 @@
           <a href="#photoContainer">PHOTOGRAPHY</a>
         </div>
         <div class="navItem">
-          <a href="#contact">CONTACT</a>
+          <a class="contact-button">CONTACT</a>
         </div>
         </nav>
   <!--End navigation section-->
@@ -95,7 +96,7 @@
           </div>
           <!--End of portfolio section-->
           <!--Music page-->
-          <div id="music" class="music full">
+          <div id="music"  class="music full">
             <h1 class="headline">MUSIC PRODUCTION</h1>
             <div class="container fade-container">
               <div class="music-info">
@@ -118,7 +119,7 @@
           </div>
           <!--Photo section-->
          <section>
-            <div id="photoContainer" class="photoContainer full">
+            <div id="photoContainer"  class="photoContainer full">
               <h1 class="headline">Photography/<br>Graphic Design</h1>
               <div class="container fade-container photo-flex">
 
@@ -145,9 +146,10 @@
                   <!--Contact Form-->
                   <form class="contact-form" action="#"  method="POST">
                     <label for="name"></label>
+                    <!--<span class="label-text">First Name</span>-->
                     <input class="gutter" type="text" name="name" placeholder="Name *">
                     <label for="email"></label>
-                    <input type="text" name="email" placeholder="Email address *">
+                    <input type="text" name="email" placeholder="Email *">
                     <label for="phone"></label>
                     <input class="gutter" type="text" name="phone" placeholder="Phone number">
                     <label for="website"></label>
@@ -171,7 +173,10 @@
       <h3>&copy;2017 David Low</h3>
     </footer>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
     <script
     src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
     integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="

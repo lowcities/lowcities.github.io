@@ -16,11 +16,12 @@ const heder = document.querySelector('header');
 const modalEl = document.querySelector('.contact');
 const modalButton = document.querySelector('.modal-button');
 const modOverlay = document.querySelector('.modal-overlay');
+const contactBtn = document.querySelector('.contact-button');
 
 //Function to show or hide menu bar depending on screen size
 function checkSize() {
   if(window.innerWidth <= 768) {
-    menuBar.classList.add('menu-hide');
+    menuBar.classList.remove('menu-show');
     banner.style.display = 'none';
     mobileLogo.style.display = 'inline-block';
     menuBar.classList.add('sticky-mobile');
@@ -29,7 +30,7 @@ function checkSize() {
   else {
     banner.style.display = 'block';
     mobileLogo.style.display = 'none';
-    menuBar.classList.remove('menu-hide');
+    menuBar.classList.add('menu-show');
     menuBar.classList.remove('sticky-mobile');
     }
   }
@@ -42,14 +43,14 @@ link.forEach(function(item) {
 
 //function opens or closes nav menu in mobile view
 function mobileMenuToggle(e) {
-  if (menuBar.classList.contains('menu-hide')) {
+  if (!menuBar.classList.contains('menu-show')) {
       toggleMenu.classList.add('open');
-      menuBar.classList.remove('menu-hide');
+      menuBar.classList.add('menu-show');
       
   }
   else {
       toggleMenu.classList.remove('open');
-      menuBar.classList.add('menu-hide');
+      menuBar.classList.remove('menu-show');
       
       }
 }
@@ -119,14 +120,14 @@ function imageClip() {
   $(bluredImage).attr("style", `-webkit-clip-path: inset(0 0 0 ${Math.floor(coords.left)}px);
   clip-path: inset(0 0 0 ${Math.floor(coords.left)}px);`);
 }
-
+//Function reveals contact form when "contact me" button is clicked.
 function modalReveal() {
-  console.log('test');
   let modalClose = document.querySelector('.modal-close');
   if(!modOverlay.classList.contains('modal-active')) {
     modalButton.classList.add('to-circle');
     modOverlay.classList.add('modal-active');
     modalEl.style.zIndex = 83;
+    //Closes modal whn the "x" is clicked.
     modalClose.addEventListener('click', function() {
       modOverlay.classList.remove('modal-active');
       modalButton.classList.remove('to-circle');
@@ -136,13 +137,27 @@ function modalReveal() {
   else {
     modOverlay.classList.remove('modal-active');
     modalButton.classList.remove('to-circle');
-    
   }
 }
+//Function enables smooth scrolling to sections clicked from the navbar/menu.
+$('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+        || location.hostname == this.hostname) {
 
-window.addEventListener('load', checkSize);
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+           if (target.length) {
+             $('html,body').animate({
+                 scrollTop: target.offset().top
+            }, 1000);
+            return false;
+        }
+    }
+});
 
 window.addEventListener('load', imageClip);
+
+window.addEventListener('load', checkSize);
 
 window.addEventListener('scroll', showContent);
 
@@ -155,6 +170,8 @@ window.addEventListener('scroll', stickyNav);
 toggleMenu.addEventListener('click', mobileMenuToggle);
 
 modalButton.addEventListener('click', modalReveal);
+
+contactBtn.addEventListener('click', modalReveal);
 
 //Check size of screen on resize of window
 $(window).resize(checkSize);
