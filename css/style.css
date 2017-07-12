@@ -688,9 +688,27 @@ iframe {
             Form Section
 ***********************************************/
 
+label {
+  display: flex;
+  flex-direction: column;
+  font-family: 'orbitron', sans-serif;
+}
+.form-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.label-text {
+  display: block;
+  float: left;
+  width: 100%;
+}
 .contact-form {
   display: block;
   margin: 0 auto; padding: 0 5%;
+}
+.gutter {
+  margin: 0 2%;
 }
 .contact-form input[type="text"],
 .message {
@@ -702,22 +720,23 @@ iframe {
           box-shadow: 0 2px 1px rgba(255,255,255,0.4), inset 0 5px 1px rgba(0,0,0,0.1);
 }
 .contact-form input[type="text"] {
+
   float: left;
-  width: 42%;
+  width: 90%;
   margin-bottom: 8px; 
 }
-.gutter {
-  margin: 0 5%;
-}
+
 .message {
   border: none;
-  height: 200px; width: 89%;
-  margin-bottom: 1rem;
+  height: 200px; width: 93%;
+  margin: 0 0 1rem 2%;
 }
 input::placeholder,
 textarea::placeholder {
   color: #292b2c;
-  font-family: 'orbitron', sans-serif;
+  font-family: sans-serif;
+  padding-left: .3rem;
+  opacity: .8;
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
@@ -732,6 +751,7 @@ input {
   border: none;
   -webkit-box-shadow: 1px 1px 0px black, inset 0 2px 0px rgba(255,255,255,0.4);
           box-shadow: 1px 1px 0px black, inset 0 2px 0px rgba(255,255,255,0.4);
+  line-height: 2;        
 }
 
 /***********************************************
