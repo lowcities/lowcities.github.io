@@ -13,18 +13,31 @@
   </head>
     <div class="overlay"></div>
   <header>
-    <a class="logo" href="index.html">
-      <img src="img/lowcitieslogo.svg" alt="main-logo">
-    </a>
-    <div class="nav_menu">
-      <img class="button" src="img/box.png" alt="menu-hamburger">
-      <h5 class="nav">MENU</h5>
+    <div class="header-overflow">
+      <div class="city-background"></div>
+        <div class="logo-container">
+          <div class="logo-background"></div>
+          <a class="logo" href="index.html">
+            <img src="img/lowcitieslogo.svg" alt="main-logo">
+          </a>
+        </div>
     </div>
+      <div class="mobile-header">
+        <div class="city-background mobile-city" style="width: 100%; padding-right: 0;"></div>
+        <div class="nav_menu">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>  
+        <div class="mobile-logo">LOWCITIES/MULTI-MEDIA PRODUCTION</div>
+      </div>
+    
   </header>
   <body>
     <div class="wrapper">
   <!--Navigation section-->
-      <nav id="menu" class="menu menu-hide">
+      <nav id="menu" class="menu">
         <div class="navLogo">
           <a href="index.html">LOWCITIES</a>
         </div>
@@ -41,23 +54,28 @@
           <a href="#photoContainer">PHOTOGRAPHY</a>
         </div>
         <div class="navItem">
-          <a href="photos.html">CONTACT</a>
+          <a class="contact-button">CONTACT</a>
         </div>
         </nav>
   <!--End navigation section-->
         <div id="content" class="content">
           <!--About section-->
-          <div id="about" class="about container">
-            <div class="biopic img-shadow"></div>
-                <div class="intro">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum purus eros, ullamcorper sed vulputate in, venenatis a enim. Aliquam consequat lorem vel lorem venenatis porta. Donec facilisis turpis eget scelerisque faucibus. Quisque augue erat, cursus non ipsum quis, semper ullamcorper velit. Ut arcu purus, scelerisque non varius non, finibus eget elit. Suspendisse interdum diam eget dui luctus egestas. Quisque vitae enim maximus, ultrices erat non, molestie felis. Fusce id neque nibh. Ut a eros at quam vulputate ullamcorper vitae cursus augue. Fusce et enim non eros sodales porttitor. Nullam quis mauris tortor. Donec cursus, diam vitae euismod blandit, dui ipsum sollicitudin ante, quis tempor quam mauris nec odio. Ut ac libero non urna pharetra congue.
-                  </p>
-                </div>
+          <div class="background">
+            <div id="about" class="about container">
+              <div class="about-container">
+                <div class="about-background"></div>
+                <!--<div class="biopic img-shadow"></div>-->
+                    <div class="intro">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum purus eros, ullamcorper sed vulputate in, venenatis a enim. Aliquam consequat lorem vel lorem venenatis porta. Donec facilisis turpis eget scelerisque faucibus. Quisque augue erat, cursus non ipsum quis, semper ullamcorper velit. Ut arcu purus, scelerisque non varius non, finibus eget elit. Suspendisse interdum diam eget dui luctus egestas. Quisque vitae enim maximus, ultrices erat non, molestie felis. Fusce id neque nibh. Ut a eros at quam vulputate ullamcorper vitae cursus augue. Fusce et enim non eros sodales porttitor. Nullam quis mauris tortor. Donec cursus, diam vitae euismod blandit, dui ipsum sollicitudin ante, quis tempor quam mauris nec odio. Ut ac libero non urna pharetra congue.
+                      </p>
+                    </div>
+              </div>
+            </div>
           </div>
           <!--End of About Section-->
           <!--Portfolio section-->
           <div id="portfolio" class="full">
-            <h1 class="headline img-shadow">Web Design Portfolio</h1>
+            <h1 class="headline">Web Design Portfolio</h1>
             <div class="container fade-container">
               <div class="portfolio-content">
                 <div class="site-one-photo img-shadow"></div>
@@ -78,14 +96,15 @@
           </div>
           <!--End of portfolio section-->
           <!--Music page-->
-          <div id="music" class="music full">
-            <h1 class="headline img-shadow">MUSIC PRODUCTION</h1>
+          <div id="music"  class="music full">
+            <h1 class="headline">MUSIC PRODUCTION</h1>
+            <!--<img class="headline" src="img/headlinesample.svgz">-->
             <div class="container fade-container">
               <div class="music-info">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
               </div>
                 <div class="track track1">
-                <iframe class="img-shadow" width="80%" height="250" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/222370619&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+               <iframe class="img-shadow" style="border: 0; width: 80%; height: 250px;" src="https://bandcamp.com/EmbeddedPlayer/track=781937637/size=large/bgcol=333333/linkcol=0f91ff/tracklist=false/transparent=true/" seamless><a href="http://lowcities.bandcamp.com/track/wake-up">Wake Up by LowCities</a></iframe>
               </div>
               <div class="music-info">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
@@ -101,8 +120,8 @@
           </div>
           <!--Photo section-->
          <section>
-            <div id="photoContainer" class="photoContainer full">
-              <h1 class="headline img-shadow">Photography/Graphic Design</h1>
+            <div id="photoContainer"  class="photoContainer full">
+              <h1 class="headline">Photography/<br>Graphic Design</h1>
               <div class="container fade-container photo-flex">
 
                 <div class="photoBox">
@@ -116,26 +135,65 @@
             </div>
           </section>
           <!--End photo section-->
-
-
-        <footer>
+          <!--Modal Section-->
+          <section>
+            <div id="contact" class="contact"> 
+              <div class="modal-button">Contact Me</div>
+              <div class="modal-overlay">
+                <div class="modal-wrap">
+                  <div class="modal-close">&#10006;</div>
+                  <h2>General Info</h2>
+                  <p>I just need some basic info about you and your project, please fill out the form below.</p>
+                  <!--Contact Form-->
+                  <form class="contact-form" action="#"  method="POST">
+                   <div class="form-row">
+                      <label class="gutter" for="name">
+                        <span class="label-text">Name</span>
+                        <input  type="text" name="name" placeholder="John/Jane Doe *">
+                      </label>
+                      <label for="email">
+                        <span class="label-text">Email</span>
+                        <input type="text" name="email" placeholder="you@email.com *">
+                      </label>
+                   </div>
+                    <div class="form-row">
+                      <label class="gutter" for="phone">
+                        <span class="label-text">Phone Number</span>
+                        <input type="text" name="phone" placeholder="555-555-5555">
+                      </label>
+                      <label for="website">
+                        <span class="label-text">Website</span>
+                        <input type="text" name="website" placeholder="yourwebsite.com">
+                      </label>
+                    </div>
+                    <textarea class="message" placeholder="Details about your project *"></textarea>
+                    <input class="submit-button gutter" type="submit" name="submit" value="Submit">
+                  </form>
+                  <!--End Contact Form-->
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--End modal section-->
+    <footer>
       <div class="social">
-        <div class="twitter"><a href="http://twitter.com/lowcities"></a></div>
-        <div class="insta"><a href="http://instagram.com/lowcities"></a></div>
-        <div class="linkdin"></div>
-        <div class="github"></div>
-        </div>
+        <a href="http://twitter.com/lowcities"><i class="twitter"></i></a>
+        <a href="http://instagram.com/lowcities"><i class="insta"></i></a>
+        <a><i class="linkdin"></i></a>
+        <a><i class="github"></i></a>
+      </div>  
       <h3>&copy;2017 David Low</h3>
-
     </footer>
-      </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
     <script
     src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
     integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
     crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="js/photos.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/app.js" type="text/javascript" charset="utf-8"></script>

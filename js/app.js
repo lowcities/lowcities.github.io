@@ -1,5 +1,5 @@
 "use strict";
-const menuButton = document.querySelector('.nav');
+const mobileHead = document.querySelector('.mobile-header');
 const toggleMenu = document.querySelector('.nav_menu');
 const menuBar = document.getElementById('menu');
 const fadeContainers = document.querySelectorAll('.fade-container');
@@ -8,16 +8,29 @@ const topOfNav = menuBar.offsetTop;
 const topOfMobile = toggleMenu.offsetTop;
 const navLogo = document.querySelector('.navLogo');
 const headers = document.querySelectorAll('.headline');
+const introContainer = document.querySelector('.intro');
+const bluredImage = document.querySelector('.about-background');
+const banner = document.querySelector('.logo');
+const mobileLogo = document.querySelector('.mobile-logo');
+const heder = document.querySelector('header');
+const modalEl = document.querySelector('.contact');
+const modalButton = document.querySelector('.modal-button');
+const modOverlay = document.querySelector('.modal-overlay');
+const contactBtn = document.querySelector('.contact-button');
 
 //Function to show or hide menu bar depending on screen size
 function checkSize() {
-  if(window.innerWidth <= 898) {
-    menuBar.classList.add('menu-hide');
+  if(window.innerWidth <= 768) {
+    menuBar.classList.remove('menu-show');
+    banner.style.display = 'none';
+    mobileLogo.style.display = 'inline-block';
     menuBar.classList.add('sticky-mobile');
-    menuButton.innerHTML = 'MENU';
+    toggleMenu.classList.remove('open');
 }
   else {
-    menuBar.classList.remove('menu-hide');
+    banner.style.display = 'block';
+    mobileLogo.style.display = 'none';
+    menuBar.classList.add('menu-show');
     menuBar.classList.remove('sticky-mobile');
     }
   }
@@ -30,29 +43,32 @@ link.forEach(function(item) {
 
 //function opens or closes nav menu in mobile view
 function mobileMenuToggle(e) {
-  if (menuBar.classList.contains('menu-hide')) {
-      menuBar.classList.remove('menu-hide');
-      menuButton.innerHTML = 'CLOSE';
+  if (!menuBar.classList.contains('menu-show')) {
+      toggleMenu.classList.add('open');
+      menuBar.classList.add('menu-show');
+      
   }
   else {
-      menuBar.classList.add('menu-hide');
-      menuButton.innerHTML = 'MENU';
+      toggleMenu.classList.remove('open');
+      menuBar.classList.remove('menu-show');
+      
       }
 }
 
 
 //creates a sticky nav bar when window is scrolled to the top of nav bar.
 function stickyNav(e) {
-  if(window.innerWidth >= 898 && window.scrollY >= topOfNav) {
+  if(window.innerWidth >= 768 && window.scrollY >= heder.offsetHeight) {
     menuBar.classList.add('sticky-nav');
-  } else {
+  } else  {
     menuBar.classList.remove('sticky-nav');
   }
+  console.log(window.scrollY, heder.offsetHeight);
 }
 
 //Creates a sticky mobile menu when window is scrolled to top of mobile menu button
-function stickyMobileMenu(e) {
-  if(window.innerWidth <= 898 && window.scrollY >= topOfMobile) {
+function stickyMobileMenu() {
+  if(window.innerWidth <= 768 && window.scrollY >= mobileHead.offsetHeight) {
     toggleMenu.classList.add('sticky-nav-button');
 //    menuBar.classList.add('sticky-mobile');
   }
@@ -61,20 +77,7 @@ function stickyMobileMenu(e) {
   }
 }
 
-function debounce(func, wait = 20, immediate = true) {
-      var timeout;
-      return function() {
-        var context = this, args = arguments;
-        var later = function() {
-          timeout = null;
-          if (!immediate) func.apply(context, args);
-        };
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-      };
-    }
+
 
 //Show or hide content based on window position
 function showContent(e) {
@@ -112,6 +115,51 @@ function showHeadline(e) {
   });
 }
 
+function imageClip() {
+  let coords = introContainer.getBoundingClientRect();
+  $(bluredImage).attr("style", `-webkit-clip-path: inset(0 0 0 ${Math.floor(coords.left)}px);
+  clip-path: inset(0 0 0 ${Math.floor(coords.left)}px);`);
+}
+//Function reveals contact form when "contact me" button is clicked.
+function modalReveal() {
+  let modalClose = document.querySelector('.modal-close');
+  if(!modOverlay.classList.contains('modal-active')) {
+    modalButton.classList.add('to-circle');
+    modOverlay.classList.add('modal-active');
+    modalEl.style.zIndex = 83;
+    //Closes modal whn the "x" is clicked.
+    modalClose.addEventListener('click', function() {
+      modOverlay.classList.remove('modal-active');
+      modalButton.classList.remove('to-circle');
+      modalEl.style.zIndex = 79;
+    });
+  }
+  else {
+    modOverlay.classList.remove('modal-active');
+    modalButton.classList.remove('to-circle');
+  }
+}
+//Function enables smooth scrolling to sections clicked from the navbar/menu.
+$('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+        || location.hostname == this.hostname) {
+
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+           if (target.length) {
+             $('html,body').animate({
+                 scrollTop: target.offset().top
+            }, 1000);
+            checkSize();
+            return false;
+        }
+    }
+});
+
+window.addEventListener('load', imageClip);
+
+window.addEventListener('load', checkSize);
+
 window.addEventListener('scroll', showContent);
 
 window.addEventListener('scroll', showHeadline, {capture: true});
@@ -122,10 +170,14 @@ window.addEventListener('scroll', stickyNav);
 
 toggleMenu.addEventListener('click', mobileMenuToggle);
 
-//Check size of screen on page load
-checkSize();
+modalButton.addEventListener('click', modalReveal);
+
+contactBtn.addEventListener('click', modalReveal);
+
 //Check size of screen on resize of window
 $(window).resize(checkSize);
+$(window).resize(imageClip);
+
 
 
 
