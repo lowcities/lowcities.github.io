@@ -115,7 +115,7 @@ footer {
 	width: 100%;
   text-align: center;
   font-family: 'hacked', sans-serif;
-  z-index: 83;
+  z-index: 82;
 }
 h1, h3{
 
@@ -153,7 +153,6 @@ h1, h3{
 .headline-show{
   opacity: 1;
   transform: translateY(0%);
-
 }
 .border {
   border: 10px solid transparent;
@@ -684,6 +683,8 @@ iframe {
 .modal-active {
   top: 0px; left: 0px; right: 0px; bottom: 0px;
   opacity: 1;
+  /* Makes the modal scrollable  */
+   overflow-y: auto;  
   -webkit-transform: scale(1);
     transform: scale(1); 
   z-index: 84;

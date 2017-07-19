@@ -59,7 +59,6 @@ function stickyNav(e) {
   } else  {
     menuBar.classList.remove('sticky-nav');
   }
-  console.log(window.scrollY, heder.offsetHeight);
 }
 //Creates a sticky mobile menu when window is scrolled to top of mobile menu button
 function stickyMobileMenu() {
@@ -137,10 +136,12 @@ $('a[href*="#"]:not([href="#"])').click(function() {
         || location.hostname == this.hostname) {
 
         var target = $(this.hash);
+        var navBarHeight = menuBar.offsetHeight;
+        var scrollToPosition = target.offset().top - navBarHeight;
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
            if (target.length) {
              $('html,body').animate({
-                 scrollTop: target.offset().top
+                 scrollTop: scrollToPosition
             }, 1000);
             checkSize();
             return false;
