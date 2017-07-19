@@ -34,8 +34,6 @@ function checkSize() {
     menuBar.classList.remove('sticky-mobile');
     }
   }
-
-
 //Function closes mobile menu if a link is clicked.
 link.forEach(function(item) {
   item.addEventListener('click', checkSize);
@@ -54,8 +52,6 @@ function mobileMenuToggle(e) {
       
       }
 }
-
-
 //creates a sticky nav bar when window is scrolled to the top of nav bar.
 function stickyNav(e) {
   if(window.innerWidth >= 768 && window.scrollY >= heder.offsetHeight) {
@@ -65,7 +61,6 @@ function stickyNav(e) {
   }
   console.log(window.scrollY, heder.offsetHeight);
 }
-
 //Creates a sticky mobile menu when window is scrolled to top of mobile menu button
 function stickyMobileMenu() {
   if(window.innerWidth <= 768 && window.scrollY >= mobileHead.offsetHeight) {
@@ -76,27 +71,24 @@ function stickyMobileMenu() {
     toggleMenu.classList.remove('sticky-nav-button');
   }
 }
-
-
-
 //Show or hide content based on window position
-function showContent(e) {
-  fadeContainers.forEach(container => {
-    //screen position at which content fades in
-    const showContainerAt = (window.scrollY + window.innerHeight) - container.offsetHeight / 5;
-    //bottom of the container
-    const containerBottom = container.offsetTop + container.offsetHeight;
-    const isHalfShown = showContainerAt > container.offsetTop;
-    //content is still visible on the screen
-    const isNotScrolledPast = window.scrollY < containerBottom;
-    if(isHalfShown && isNotScrolledPast) {
-      container.classList.add('container-show');
-    } else {
-      container.classList.remove('container-show');
+// function showContent(e) {
+//   fadeContainers.forEach(container => {
+//     //screen position at which content fades in
+//     const showContainerAt = (window.scrollY + window.innerHeight) - container.offsetHeight / 5;
+//     //bottom of the container
+//     const containerBottom = container.offsetTop + container.offsetHeight;
+//     const isHalfShown = showContainerAt > container.offsetTop;
+//     //content is still visible on the screen
+//     const isNotScrolledPast = window.scrollY < containerBottom;
+//     if(isHalfShown && isNotScrolledPast) {
+//       container.classList.add('container-show');
+//     } else {
+//       container.classList.remove('container-show');
 
-    }
-  });
-}
+//     }
+//   });
+// }
 
 function showHeadline(e) {
   headers.forEach(headline => {
@@ -156,11 +148,43 @@ $('a[href*="#"]:not([href="#"])').click(function() {
     }
 });
 
+//Function determines if inputed email address is valid
+function isValidEmailAddress(emailAddress) {
+    var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    return pattern.test(emailAddress);
+};
+var $valid = $('<span></span>').insertAfter('.email');
+var $button = $('.submit-button');
+//Sets default state of button to 'disabled'
+$button.prop('disabled', true);
+//adds event listener to the email input field
+$('.email').keyup(function() {
+  //Value of email input
+  var $value = $(this).val();
+  //Tests if email is valid
+  if(isValidEmailAddress($value) === true) {
+  //Displays message stating email is valid and adds appropriate css class
+    $valid.text("Email address is valid.").removeClass('inValid').addClass('valid');
+    $button.prop('disabled', false);
+  } else {
+  //Displays message stating email is invalid and adds appropriate css class
+    $valid.text("Please enter valid email address.").addClass('inValid');
+    $button.prop('disabled', true);
+  }
+});
+
+//Prevents default behaviour of submit button and triggers an alert box when clicked
+$button.click(function() {
+  event.preventDefault();
+  alert("Server unavailable, try again later!");
+});
+
+
 window.addEventListener('load', imageClip);
 
 window.addEventListener('load', checkSize);
 
-window.addEventListener('scroll', showContent);
+// window.addEventListener('scroll', showContent);
 
 window.addEventListener('scroll', showHeadline, {capture: true});
 
