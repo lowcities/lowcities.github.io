@@ -1004,6 +1004,14 @@ input {
             Media Queries
 ***********************************************/
 
+@media screen and (max-width: 506px) {
+
+  .headline-text {
+    background-color: #D4D2D2;
+    font-size: 1.9rem;
+  }
+
+}
 @media screen and (max-width: 600px) {
 
   .arrowLeft,
