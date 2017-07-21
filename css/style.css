@@ -1007,7 +1007,10 @@ input {
 @media screen and (max-width: 506px) {
 
   .headline-text {
-    background-color: #D4D2D2;
+    background: linear-gradient(to bottom, #D4D2D2 70%, dimgrey);
+    background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     font-size: 1.9rem;
   }
 
@@ -1043,9 +1046,6 @@ input {
   }
   .headline {
     width: 60%;
-  }
-  .headline-text {
-    font-size: 3rem;
   }
   .logo-background {
     display: inline-block;
@@ -1188,4 +1188,10 @@ input {
   }
   
 }
+@media screen and (min-width: 1024px) {
 
+  .headline-text {
+     font-size: 3rem; 
+  }
+
+}
