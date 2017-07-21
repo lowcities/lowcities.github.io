@@ -148,6 +148,7 @@ footer h3 {
   z-index: 78;
 }
 .headline-text {
+  background: -webkit-linear-gradient(top, whitesmoke, transparent), url('../img/gradient-dark-stripe-hz.png') center repeat-x;
   background: linear-gradient(to bottom, whitesmoke, transparent), url('../img/gradient-dark-stripe-hz.png') center repeat-x;
   background-clip: text;
   -webkit-background-clip: text;
@@ -187,6 +188,7 @@ h3 {
   margin: 0 auto;
 }
 .greydient {
+  background-image: -webkit-linear-gradient(top, #7D7979, #4B4949);
   background-image: linear-gradient(to bottom, #7D7979, #4B4949); 
 }
 /***********************************************
@@ -1007,6 +1009,7 @@ input {
 @media screen and (max-width: 506px) {
 
   .headline-text {
+    background: -webkit-linear-gradient(top, #D4D2D2 70%, dimgrey);
     background: linear-gradient(to bottom, #D4D2D2 70%, dimgrey);
     background-clip: text;
       -webkit-background-clip: text;
