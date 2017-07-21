@@ -24,8 +24,7 @@ function checkSize() {
     menuBar.classList.remove('menu-show');
     menuBar.classList.add('sticky-mobile');
     toggleMenu.classList.remove('open');
-}
-  else {
+} else {
     menuBar.classList.add('menu-show');
     menuBar.classList.remove('sticky-mobile');
     }
@@ -35,18 +34,16 @@ link.forEach(function(item) {
   item.addEventListener('click', checkSize);
 });
 
-//function opens or closes nav menu in mobile view
+//function opens or closes nav menu when toggle menu button is clicked while in mobile view
 function mobileMenuToggle(e) {
   if (!menuBar.classList.contains('menu-show')) {
       toggleMenu.classList.add('open');
       menuBar.classList.add('menu-show');
-      
   }
   else {
       toggleMenu.classList.remove('open');
       menuBar.classList.remove('menu-show');
-      
-      }
+  }
 }
 //creates a sticky nav bar when window is scrolled to the top of nav bar.
 function stickyNav(e) {
@@ -56,7 +53,7 @@ function stickyNav(e) {
     menuBar.classList.remove('sticky-nav');
   }
 }
-//Creates a sticky mobile menu when window is scrolled to top of mobile menu button
+//Creates a sticky mobile toggle button when window is scrolled to top of mobile menu button
 function stickyMobileMenu() {
   if(window.innerWidth <= 767 && window.scrollY >= mobileHead.offsetHeight) {
     toggleMenu.classList.add('sticky-nav-button');
@@ -66,9 +63,10 @@ function stickyMobileMenu() {
     toggleMenu.classList.remove('sticky-nav-button');
   }
 }
+//section headlines dynamically pop up as screen is scrolled
 function showHeadline(e) {
   headers.forEach(headline => {
-    //Screen position at which headline slides in
+    //Screen position at which headline slides up
     const showHeadlineAt = (window.scrollY + window.innerHeight) - headline.offsetHeight;
     //Bottom position of headline
     const headlineBottom = headline.offsetTop + headline.offsetHeight * 40;
@@ -82,7 +80,7 @@ function showHeadline(e) {
     }
   });
 }
-
+//sets clipping path for blurred background of about section depending on screen size
 function imageClip() {
   let coords = introContainer.getBoundingClientRect();
   $(bluredImage).attr("style", `-webkit-clip-path: inset(0 0 0 ${Math.floor(coords.left)}px);
@@ -142,12 +140,12 @@ $('a[href*="#"]:not([href="#"])').click(function() {
     }
 });
 
-//Function determines if inputed email address is valid
+//Valid email tester function
 function isValidEmailAddress(emailAddress) {
     var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
     return pattern.test(emailAddress);
 };
-
+//Function determines if inputed email address is valid as characters are typed in
 var $valid = $('<span></span>').insertAfter('.email');
 const submitButton = document.querySelector('.submit-button');
 let validEmail;
@@ -159,10 +157,12 @@ $('.email').keyup(function() {
   if(isValidEmailAddress($value) === true) {
   //Displays message stating email is valid and adds appropriate css class
     $valid.text("Email address is valid.").removeClass('inValid').addClass('valid');
+  //Email is valid  
     validEmail = true;
   } else {
   //Displays message stating email is invalid and adds appropriate css class
     $valid.text("Please enter valid email address.").addClass('inValid');
+  //Email is not valid  
     validEmail = false;
   }
 });
@@ -172,27 +172,29 @@ submitButton.addEventListener('click', function(e) {
   let required = document.querySelectorAll('.required');
   let isValid;
   required.forEach(item => {
+    //if any required field is empty
     if(item.value == "") {
+      //incomplete fields will flash red
       item.classList.add('inComplete');
       isValid = false;
     } else {
+      //all required fields have been completed
       item.classList.remove('inComplete');
       isValid = true
     }
   });
+  //if all required fields have content and email address is valid
   if(isValid === true && validEmail === true) {
     alert("Server unavailable, try again later!");
   } else {
+  //if not...
     alert("Please fill out all required fields.");
-    
   }
 });
 
 window.addEventListener('load', imageClip);
 
 window.addEventListener('load', checkSize);
-
-// window.addEventListener('scroll', showContent);
 
 window.addEventListener('scroll', showHeadline, {capture: true});
 
