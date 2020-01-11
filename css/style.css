@@ -8,21 +8,22 @@ FONTS
     font-weight: normal;
     font-style: normal;
     font-family: 'destroyregular';
-    src: url('destroy/destroy_-webfont.eot');
+    src: url('/destroy/destroy_-webfont.eot');
     src: url('destroy/destroy_-webfont.eot?#iefix') format('embedded-opentype'),
-         url('destroy/destroy_-webfont.woff') format('woff'),
-         url('destroy/destroy_-webfont.ttf') format('truetype'),
-         url('destroy/destroy_-webfont.svg#destroyregular') format('svg');
+         url('/destroy/destroy_-webfont.woff') format('woff'),
+         url('/destroy/destroy_-webfont.ttf') format('truetype'),
+         url('/destroy/destroy_-webfont.svg') format('svg');
 }
 @font-face {
   font-weight: normal; 
   font-style: normal;  
   font-family: 'hacked'; 
   src:
-    url('HACKED/HACKED.eot?#iefix') format('embedded-opentype'), 
-    url('HACKED/HACKED.woff') format('woff'), 
-    url('HACKED/HACKED.ttf') format('truetype'), 
-    url('HACKED/HACKED.svg#hacked') format('svg'); 
+  url('/hacked/HACKED.eot') format('embedded-opentype'),
+    url('/hacked/HACKED.eot?#iefix') format('embedded-opentype'), 
+    url('/hacked/HACKED.woff') format('woff'), 
+    url('/hacked/HACKED.ttf') format('truetype'), 
+    url('/hacked/HACKED.svg') format('svg'); 
 }
 
 /*******************************************************
